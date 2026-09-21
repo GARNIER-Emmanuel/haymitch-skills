@@ -24,7 +24,7 @@ Sept skills indépendants, un dossier chacun. L'agent les découvre par leur des
 
 | Dossier | Ce qu'il apporte |
 |---|---|
-| `haymitch` | La méthode : cadrage, tranche verticale, 4 phases TDD, standards par stack. Porte `POLICY.md`, la politique normative. |
+| `haymitch` | La méthode : cadrage, roadmap par jalons, tranche verticale, 4 phases TDD, standards par stack. Porte `POLICY.md`, la politique normative. |
 | `hay-help` | Explique le workflow et l'utilité de chaque commande |
 | `hay-status` | Où il en est, et la commande exacte à lancer |
 | `hay-debug` | Débloquer une erreur sans donner la solution |

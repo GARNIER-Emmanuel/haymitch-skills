@@ -81,8 +81,8 @@ cp -R skills/* ~/.agents/skills/        # ou <votre-projet>/.agents/skills/
 | Commande | Rôle |
 |---|---|
 | **`/haymitch`** | Le Tech Lead principal : la méthode, les invariants, les règles par stack. Porte la politique normative. |
-| **`/hay-feature`** | Une idée brute → 3 questions → 1 à 3 User Stories → des tickets tracer-bullet. |
-| **`/hay-status`** | Cinq lignes : ticket en cours, phase TDD, ce qui bloque, et la commande exacte à lancer. |
+| **`/hay-feature`** | Une idée brute → 3 questions → une roadmap de 3 à 6 jalons → 1 à 3 User Stories → des tickets tracer-bullet. |
+| **`/hay-status`** | Cinq lignes : jalon en cours, ticket, phase TDD, ce qui bloque, et la commande exacte à lancer. |
 | **`/hay-debug`** | Débloquer une erreur sans donner la solution : cause racine, question d'action, changement d'angle. |
 | **`/hay-review`** | Verdict binaire `[VALIDÉ]` / `[À CORRIGER]`, impact production, puis clôture et message de commit. |
 | **`/hay-adr`** | Consigner une décision difficile à inverser — et refuser un ADR qui n'en mérite pas. |
@@ -92,18 +92,18 @@ Chaque skill est **autonome** : copiée seule, elle reste opérationnelle. Insta
 
 ## 🔁 La boucle de travail
 
-1. **Cadrer** — une idée floue devient 1 à 3 User Stories. Aucune autre fonctionnalité ne s'ouvre avant que celle-ci soit finie de bout en bout.
+1. **Cadrer** — une idée floue devient une **roadmap de 3 à 6 jalons** (des capacités démontrables, jamais des couches techniques), puis 1 à 3 User Stories. Aucune autre fonctionnalité ne s'ouvre avant que celle-ci soit finie de bout en bout.
 2. **Découper** — des tickets *tracer-bullet* : un chemin étroit mais **complet** à travers toutes les couches, livrable et vérifiable seul.
 3. **Implémenter** — un ticket à la fois, en 4 phases immuables : **contrat → test rouge → implémentation minimale → refactorisation**. L'ordre est non négociable : c'est le seul qui prouve que le test teste quelque chose.
 4. **Prouver** — les critères d'acceptation se cochent sur du code réel et un test vert, jamais sur une déclaration.
-5. **Clore** — votre message de commit au format Conventional Commit, validé avant la clôture. Le commit reste le vôtre.
+5. **Clore** — votre message de commit au format Conventional Commit, validé avant la clôture. Le commit reste le vôtre. Un jalon entier bouclé, et Haymitch **annonce** le suivant : il ne vous demande pas de deviner.
 6. **Consigner** — toute décision difficile à inverser part dans un ADR, au moment où le raisonnement est encore disponible.
 
 ## 📁 Ce que la suite écrit dans votre projet
 
 | Chemin | Qui l'écrit | À quoi ça sert |
 |---|---|---|
-| `docs/MENTORING.md` | l'agent | L'état : intention, ticket en cours, phase TDD, décisions datées. C'est ce qui permet de reprendre la session suivante à la phase exacte. |
+| `docs/MENTORING.md` | l'agent | La vision, la **roadmap par jalons**, et l'état : ticket en cours, phase TDD, décisions datées. C'est ce qui permet de reprendre la session suivante à la phase exacte — et de savoir où va le projet. |
 | `.tickets/NN-nom.md` | vous | Un fichier par ticket, généré depuis le gabarit, coché sur preuve. |
 | `docs/adr/NNNN-nom.md` | vous | Les décisions structurantes, et le *pourquoi*. |
 
@@ -140,12 +140,14 @@ Chaque skill est un **aiguilleur**, pas un pavé : le `SKILL.md` décrit la proc
 |---|---|
 | Le catalogue des 7 descriptions (permanent) | ~600 |
 | `/hay-status` | ~600 |
-| `/hay-adr`, `/hay-debug`, `/hay-feature` | ~800 – 900 |
-| `/hay-review`, `/hay-help` | ~900 – 1 250 |
-| `/haymitch` + sa politique + un référentiel de stack | ~4 100 |
-| La suite entière (jamais chargée d'un coup) | ~19 000 |
+| `/hay-adr`, `/hay-debug`, `/hay-feature` | ~800 – 1 100 |
+| `/hay-review`, `/hay-help` | ~1 000 – 1 250 |
+| `/haymitch` + sa politique + un référentiel de stack | ~4 150 |
+| La suite entière (jamais chargée d'un coup) | ~20 000 |
 
 Deux règles de contexte sont inscrites dans la politique : **jamais de `git diff` complet** — un gros diff injecté à chaque tour finit par évincer les règles elles-mêmes — et **les références ne s'ouvrent qu'à la demande**. C'est ce qui permet à la suite de tenir dans un contexte de travail réel.
+
+La roadmap par jalons obéit à la même discipline : elle vit dans le fichier d'état, **pas dans le bloc `AGENTS.md`**. Elle se paie au cadrage et aux frontières de jalon, jamais à chaque message.
 
 ## 🤖 Compatibilité
 

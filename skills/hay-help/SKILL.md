@@ -15,7 +15,7 @@ Ce fichier n'est **pas un simple annuaire**. Ici, tu expliques **le parcours**, 
 
 Une **idée brute** devient un **cas d'usage en production**, une tranche verticale à la fois.
 
-1. **Cadrer** — une idée floue devient 1 à 3 User Stories, et l'on n'écrit aucune autre fonctionnalité avant que celle-ci soit finie de bout en bout. Sinon il construit cinq moitiés de features et rien d'utilisable.
+1. **Cadrer** — une idée floue devient une roadmap de 3 à 6 jalons, puis 1 à 3 User Stories, et l'on n'écrit aucune autre fonctionnalité avant que celle-ci soit finie de bout en bout. La roadmap donne la vue d'ensemble qui survit aux sessions ; sans elle, il construit cinq moitiés de features et rien d'utilisable.
 2. **Découper** — ces User Stories deviennent des tickets *tracer-bullet* : un chemin étroit mais complet, livrable et vérifiable seul. Un ticket qu'on ne peut pas démontrer seul est mal découpé.
 3. **Implémenter** — un ticket à la fois, en 4 phases immuables : contrat, test rouge, implémentation minimale, refactorisation. L'ordre n'est pas négociable, parce que c'est le seul qui prouve que le test teste quelque chose.
 4. **Prouver** — les critères d'acceptation se cochent sur du code réel et un test vert, jamais sur une déclaration.

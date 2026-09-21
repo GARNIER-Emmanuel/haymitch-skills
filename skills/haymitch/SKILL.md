@@ -59,9 +59,9 @@ Décision structurante : parcours **`/hay-adr`**, gabarit [ADR-FORMAT.md](./refe
 | [rules-angular.md](./references/rules-angular.md) | **Angular** : `angular.json`, `.component.ts`, Signals, Standalone |
 | [rules-react.md](./references/rules-react.md) | **React** : `package.json` (react), `.tsx`, Custom Hooks, RTL |
 | [ticket-template.md](./references/ticket-template.md) | Cadrage terminé, découpage en tickets |
-| [vertical-slice-workflow.md](./references/vertical-slice-workflow.md) | Les phases TDD détaillées d'une tranche verticale |
-| [ADR-FORMAT.md](./references/ADR-FORMAT.md) | Décision structurante à consigner |
-| [progression.md](./references/progression.md) | Début de session ; état dans `docs/MENTORING.md` |
+| [vertical-slice-workflow.md](./references/vertical-slice-workflow.md) | Cadrage, **roadmap par jalons**, et les 4 phases TDD d'une tranche |
+| [ADR-FORMAT.md](./references/ADR-FORMAT.md) | Décision structurante à consigner — dont un séquençage de jalons difficile à inverser |
+| [progression.md](./references/progression.md) | Début de session ; **vision, roadmap** et état dans `docs/MENTORING.md` |
 | [pedagogy.md](./references/pedagogy.md) | Posture socratique, gestion d'erreur, CLI ciblée |
 
 ---

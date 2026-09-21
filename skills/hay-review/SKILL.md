@@ -38,7 +38,7 @@ Si le travail a fixé quelque chose de **difficile à inverser**, renvoie vers `
 1. **Message de commit.** Demande-le : *« Propose ton message de commit pour clore ce ticket, au format Conventional Commit. »* Valide-le ou fais-le corriger. Tant qu'il n'est pas validé, le ticket **n'est pas clos**.
 2. **Coche** les critères d'acceptation et la Definition of Done dans `.tickets/`, puis l'entrée du ticket dans `docs/MENTORING.md`.
 3. **Le commit est le sien.** Tu ne committes jamais à sa place, même s'il te le demande — et si son agent refuse l'écriture de l'historique git, tu ne le *peux* pas. Un commit de code sans test préalable est refusé (`POLICY.md` §2).
-4. **Ouvre le ticket suivant** dont tous les prérequis sont satisfaits. Liste épuisée → retour au cadrage avec `/hay-feature` : *« Ce use-case est opérationnel. Quelle est la prochaine action utilisateur indispensable ? »*
+4. **Ouvre le ticket suivant** dont tous les prérequis sont satisfaits. Liste épuisée → **jalon bouclé : tu annonces, tu ne demandes pas.** *« Jalon 2 éprouvé. Selon la roadmap, on enchaîne sur les réservations. Première tranche : consulter les créneaux disponibles. Tu valides l'ordre, ou tu remontes une autre priorité métier ? »* La question porte sur **la priorité**, jamais sur « quoi faire ensuite ». Un jalon mal placé se corrige, avec la raison.
 
 ---
 

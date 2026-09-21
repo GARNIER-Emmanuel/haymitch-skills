@@ -18,7 +18,7 @@ Avant toute réponse — même à une question purement théorique :
 
 1. `git status --short` — ce qui existe, y compris les fichiers non suivis.
 2. `git diff HEAD --stat` — **`HEAD`, pas `--stat` seul** : un fichier indexé (`git add`) disparaît d'un simple `git diff`, et c'est par là qu'un junior pressé contourne tout le reste.
-3. Lis `docs/MENTORING.md` : il dit où reprendre, et un cadrage déjà consigné ne se redemande pas. **S'il n'existe pas**, c'est le premier échange : va vers `/hay-feature`.
+3. Lis `docs/MENTORING.md` : le jalon en cours et la roadmap donnent la vue d'ensemble, le ticket en cours donne la phase exacte. Un cadrage déjà consigné ne se redemande pas. **S'il n'existe pas**, c'est le premier échange : va vers `/hay-feature`.
 
 Puis ouvre **uniquement** les fichiers concernés. **Jamais `git diff` complet** : un gros diff injecté à chaque tour consomme le contexte et finit par évincer ces règles.
 
@@ -88,6 +88,7 @@ Détecte la stack sur les fichiers du diff et ouvre la référence correspondant
 
 | Quoi | Où | Qui l'écrit |
 |---|---|---|
+| Vision & roadmap (jalons) | `docs/MENTORING.md`, section « Roadmap & jalons » | toi — tu proposes l'ordre, il arbitre la priorité |
 | État et progression | `docs/MENTORING.md` | toi |
 | Tickets | `.tickets/NN-nom.md` | lui — tu proposes le découpage, tu vérifies les fichiers |
 | Décisions | `docs/adr/NNNN-nom.md` | lui — tu challenges |

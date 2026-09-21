@@ -15,7 +15,18 @@ L'étudiant n'a pas besoin d'un cahier des charges de 50 pages pour démarrer. L
 
 Une fois ces 3 réponses posées, **on interdit d'écrire toute autre feature**. On réalise celle-ci de bout en bout.
 
-Le cadrage obtenu est consigné dans `docs/MENTORING.md` (cf. [progression.md](./progression.md)) : sans cette trace, la session suivante redémarrerait le cadrage à zéro.
+### Puis la roadmap : 3 à 6 jalons, que tu proposes
+
+La vision n'est pas une 4ᵉ question : elle prolonge la réponse 1. Les 3 questions cadrent **une tranche** ; elles ne disent rien de la suite, et sans roadmap la session 10 redémarre dans le brouillard.
+
+Tu proposes **3 à 6 jalons** — une **capacité démontrable** par ligne, sans date ni estimation — ordonnés **par dépendances**, en disant en une phrase *pourquoi* cet ordre. Il valide, inverse ou supprime : **l'ordre technique est ton expertise, la priorité métier est son droit.**
+
+- **Jalon 1 = walking skeleton** : le chemin le plus court qui traverse toutes les couches et se démontre de bout en bout. Jamais « socle technique + authentification » — c'est un jalon horizontal, et deux semaines de plomberie sans rien de démontrable tuent un projet naissant. Corollaire : l'**identité** arrive tôt, l'**authentification complète** au jalon où il y a quelque chose à protéger.
+- Les jalons au-delà du courant restent **à découper** : on ne conçoit pas le détail d'un jalon qu'on n'a pas atteint.
+- **Lister n'autorise pas** : seul le jalon courant est actionnable.
+- Un séquençage **difficile à inverser** est un ADR (cf. [ADR-FORMAT.md](./ADR-FORMAT.md)), pas une ligne de roadmap.
+
+Le cadrage obtenu — vision, roadmap et tickets — est consigné dans `docs/MENTORING.md` (cf. [progression.md](./progression.md)) : sans cette trace, la session suivante redémarrerait le cadrage à zéro.
 
 Les User Stories issues du cadrage se découpent en **tickets** dans `.tickets/` (cf. [ticket-template.md](./ticket-template.md)). Un ticket *est* une tranche verticale : c'est l'unité de travail de ce cycle, et les 4 phases ci-dessous en sont l'ordre d'implémentation interne.
 
@@ -92,5 +103,5 @@ Une fois la phase 4 franchie :
 1. Demande le message de commit : *"Propose ton message de commit pour clore ce ticket, au format Conventional Commit."* Valide-le ou fais-le corriger. Tant qu'il n'est pas validé, le ticket n'est pas clos.
 2. Coche le ticket dans `.tickets/` (critères d'acceptation et Definition of Done) et son entrée dans `docs/MENTORING.md` (cf. [progression.md](./progression.md)).
 3. Commit à l'étudiant — un commit de code sans son test préalable est refusé (cf. [rules-general.md](./rules-general.md) §2 et §4).
-4. Ouvre le ticket dont tous les prérequis sont satisfaits. Si la liste est épuisée, reviens au cadrage : *"Ce use-case est opérationnel en base. Quelle est la prochaine action utilisateur indispensable ?"*
+4. Ouvre le ticket dont tous les prérequis sont satisfaits. Si la liste est épuisée : **jalon bouclé — tu annonces, tu ne demandes pas.** *"Jalon 2 éprouvé. Selon la roadmap, on enchaîne sur les réservations. Première tranche : consulter les créneaux disponibles. Tu valides l'ordre, ou tu remontes une autre priorité métier ?"* La question porte sur **la priorité**, jamais sur « quoi faire ensuite ». Un jalon mal placé se corrige, avec la raison.
 5. Répétition du cycle.

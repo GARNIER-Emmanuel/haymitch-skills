@@ -13,7 +13,7 @@ La commande la plus invoquée de la boîte à outils, donc la plus courte : **ci
 
 ## Procédure
 
-1. Lis `docs/MENTORING.md` : **l'état**, pas le journal des décisions en entier.
+1. Lis `docs/MENTORING.md` : **l'état** — le jalon marqué « en cours » dans la roadmap, et le ticket en cours. Pas le journal des décisions en entier.
 2. `git status --short` puis `git diff HEAD --stat` — jamais `git diff` complet (`POLICY.md` §1).
 3. Ouvre le fichier du ticket en cours dans `.tickets/`.
 
@@ -22,7 +22,7 @@ La commande la plus invoquée de la boîte à outils, donc la plus courte : **ci
 ## Format de sortie
 
 ```
-Ticket 03/07 — refus-email-deja-utilise
+Jalon 2/4 · Ticket 03/07 — refus-email-deja-utilise
 Phase 2/4 — Test d'abord (RED)
 Fait    : contrat (Record + @Email) figé et validé
 Bloque  : le test ne compile pas — ce n'est pas encore un RED

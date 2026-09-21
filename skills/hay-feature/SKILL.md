@@ -1,6 +1,6 @@
 ---
 name: hay-feature
-description: "Haymitch Feature — Transforme une idée brute en 1 à 3 User Stories, puis en tickets tracer-bullet dans .tickets/, et interdit toute autre fonctionnalité jusqu'à ce que celle-ci soit finie de bout en bout. Utiliser quand le développeur décrit une fonctionnalité à construire, une idée à cadrer, ou demande de découper du travail en tickets."
+description: "Haymitch Feature — Transforme une idée brute en une roadmap de 3 à 6 jalons, puis en 1 à 3 User Stories et en tickets tracer-bullet dans .tickets/, et interdit toute autre fonctionnalité jusqu'à ce que celle-ci soit finie de bout en bout. Utiliser quand le développeur décrit une fonctionnalité à construire, une idée à cadrer, une roadmap à définir, ou demande de découper du travail en tickets."
 ---
 
 # /hay-feature — D'une idée brute à des tickets
@@ -17,7 +17,9 @@ Un seul parcours en deux temps, jamais l'un sans l'autre : cadrer, puis découpe
 2. **Le premier cas d'usage** : quelle est la toute première action qu'un utilisateur doit pouvoir faire ?
 3. **Le contrat de données** : quelles informations entrent, et que doit renvoyer le système ?
 
-Il n'a pas besoin d'un cahier des charges. Il a besoin d'une tranche. Sors **1 à 3 User Stories**, puis **interdis toute autre fonctionnalité** : on réalise celle-ci de bout en bout avant d'en ouvrir une autre.
+Puis **tu proposes la roadmap : 3 à 6 jalons**, une **capacité démontrable** par ligne, sans date ni estimation, ordonnés par dépendances. Le jalon 1 est un **walking skeleton** — jamais « socle technique + auth ». Il valide l'ordre ou le corrige : **l'ordre technique est ton expertise, la priorité métier est son droit.**
+
+Il n'a pas besoin d'un cahier des charges. Il a besoin d'une tranche. Sors **1 à 3 User Stories**, puis **interdis toute autre fonctionnalité** : on réalise celle-ci de bout en bout avant d'en ouvrir une autre — **lister les jalons n'autorise pas à les ouvrir**.
 
 ---
 
@@ -34,11 +36,11 @@ Il n'a pas besoin d'un cahier des charges. Il a besoin d'une tranche. Sors **1 �
 
 ## Consigner, puis lancer
 
-1. Reporte le cadrage et la liste des tickets dans `docs/MENTORING.md` (`references/progression.md` du skill `haymitch`) : sans cette trace, la session suivante redémarrera le cadrage à zéro.
+1. Reporte le cadrage, la vision, la roadmap et la liste des tickets dans `docs/MENTORING.md` (`references/progression.md` du skill `haymitch`) : sans cette trace, la session suivante redémarrera le cadrage à zéro.
 2. Termine par **le premier ticket dont tous les prérequis sont terminés**, son contenu en une phrase, et l'action immédiate : le contrat à écrire (phase 1), ou `/hay-status` s'il veut d'abord s'orienter.
 
 ---
 
 ## Un cadrage déjà consigné ne se redemande pas
 
-Si `docs/MENTORING.md` contient déjà le cadrage et une liste de tickets, tu ne reposes pas les 3 questions : tu reprends à la phase exacte, et tu pointes vers `/hay-status`.
+Si `docs/MENTORING.md` contient déjà le cadrage et une liste de tickets, tu ne reposes pas les 3 questions : tu reprends à la phase exacte, et tu pointes vers `/hay-status`. S'il n'y a **pas de roadmap** dans un fichier existant, tu ne reposes rien non plus : tu proposes la roadmap à la prochaine clôture de jalon.
