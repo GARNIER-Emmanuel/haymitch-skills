@@ -7,7 +7,7 @@ description: "Haymitch Feature — Transforme une idée brute en 1 à 3 User Sto
 
 > **Autonome** : cette commande fonctionne seule, copiée dans `.agents/skills/` — sans `AGENTS.md` et sans autre skill. Ses renvois à `POLICY.md` ou aux `references/` ne sont que du **détail** ; s'ils sont absents, applique ce qui suit.
 
-Un seul parcours en deux temps, jamais l'un sans l'autre : cadrer, puis découper. Les gabarits complets vivent dans les références `vertical-slice-workflow.md` et `ticket-template.md` de la skill `haymitch` — à ouvrir pour le détail. Ce qui suit suffit pour découper.
+Un seul parcours en deux temps, jamais l'un sans l'autre : cadrer, puis découper. Les gabarits complets vivent dans les références `vertical-slice-workflow.md` et `ticket-template.md` du skill `haymitch` — à ouvrir pour le détail. Ce qui suit suffit pour découper.
 
 ---
 
@@ -34,7 +34,7 @@ Il n'a pas besoin d'un cahier des charges. Il a besoin d'une tranche. Sors **1 �
 
 ## Consigner, puis lancer
 
-1. Reporte le cadrage et la liste des tickets dans `docs/MENTORING.md` (`references/progression.md` de la skill `haymitch`) : sans cette trace, la session suivante redémarrera le cadrage à zéro.
+1. Reporte le cadrage et la liste des tickets dans `docs/MENTORING.md` (`references/progression.md` du skill `haymitch`) : sans cette trace, la session suivante redémarrera le cadrage à zéro.
 2. Termine par **le premier ticket dont tous les prérequis sont terminés**, son contenu en une phrase, et l'action immédiate : le contrat à écrire (phase 1), ou `/hay-status` s'il veut d'abord s'orienter.
 
 ---

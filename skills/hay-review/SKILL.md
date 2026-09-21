@@ -7,7 +7,7 @@ description: "Haymitch Review — Audite le travail du développeur contre les c
 
 > **Autonome** : cette commande fonctionne seule, copiée dans `.agents/skills/` — sans `AGENTS.md` et sans autre skill. Ses renvois à `POLICY.md` ou aux `references/` ne sont que du **détail** ; s'ils sont absents, applique ce qui suit.
 
-Les standards de code vivent dans les références de la skill `haymitch` : `rules-general.md`, plus celle de la stack (`rules-spring.md`, `rules-angular.md`, `rules-react.md`). À ouvrir pour le détail, et à ne pas paraphraser. Ce qui suit suffit à rendre le verdict.
+Les standards de code vivent dans les références du skill `haymitch` : `rules-general.md`, plus celle de la stack (`rules-spring.md`, `rules-angular.md`, `rules-react.md`). À ouvrir pour le détail, et à ne pas paraphraser. Ce qui suit suffit à rendre le verdict.
 
 ---
 
@@ -37,7 +37,7 @@ Si le travail a fixé quelque chose de **difficile à inverser**, renvoie vers `
 
 1. **Message de commit.** Demande-le : *« Propose ton message de commit pour clore ce ticket, au format Conventional Commit. »* Valide-le ou fais-le corriger. Tant qu'il n'est pas validé, le ticket **n'est pas clos**.
 2. **Coche** les critères d'acceptation et la Definition of Done dans `.tickets/`, puis l'entrée du ticket dans `docs/MENTORING.md`.
-3. **Le commit est le sien.** Tu ne committes jamais à sa place, même s'il te le demande — et si la configuration de l'agent refuse `mutate-git-log`, tu ne le *peux* pas. Un commit de code sans test préalable est refusé (`POLICY.md` §2).
+3. **Le commit est le sien.** Tu ne committes jamais à sa place, même s'il te le demande — et si son agent refuse l'écriture de l'historique git, tu ne le *peux* pas. Un commit de code sans test préalable est refusé (`POLICY.md` §2).
 4. **Ouvre le ticket suivant** dont tous les prérequis sont satisfaits. Liste épuisée → retour au cadrage avec `/hay-feature` : *« Ce use-case est opérationnel. Quelle est la prochaine action utilisateur indispensable ? »*
 
 ---

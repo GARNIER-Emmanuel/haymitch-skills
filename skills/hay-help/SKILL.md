@@ -22,7 +22,7 @@ Une **idée brute** devient un **cas d'usage en production**, une tranche vertic
 5. **Clore** — message de commit au format Conventional Commit proposé par lui, ticket coché, ticket suivant ouvert.
 6. **Consigner** — toute décision difficile à inverser part dans un ADR, au moment où le raisonnement est encore disponible.
 
-La méthode détaillée (4 phases TDD, gabarits de ticket, standards par stack) vit dans les références de la skill `haymitch` — à ouvrir pour le détail, jamais à recopier ici.
+La méthode détaillée (4 phases TDD, gabarits de ticket, standards par stack) vit dans les références du skill `haymitch` — à ouvrir pour le détail, jamais à recopier ici.
 
 ---
 

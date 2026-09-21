@@ -53,7 +53,7 @@ Décision structurante : parcours **`/hay-adr`**, gabarit [ADR-FORMAT.md](./refe
 | Ouvrir | Condition / Stack |
 |---|---|
 | [POLICY.md](./POLICY.md) | **La politique normative, en entier** — à lire avant toute autre référence |
-| [README.md](./README.md) | Installation, autonomie de la skill, et le bonus `AGENTS.md` optionnel |
+| [README.md](./README.md) | Installation, autonomie du skill, et le bonus `AGENTS.md` optionnel |
 | [rules-general.md](./references/rules-general.md) | **Toutes stacks** : Screaming Architecture, sécurité, TDD, Git |
 | [rules-spring.md](./references/rules-spring.md) | **Java / Spring Boot** : `pom.xml`, `build.gradle`, fichiers `.java` |
 | [rules-angular.md](./references/rules-angular.md) | **Angular** : `angular.json`, `.component.ts`, Signals, Standalone |
@@ -68,7 +68,7 @@ Décision structurante : parcours **`/hay-adr`**, gabarit [ADR-FORMAT.md](./refe
 
 ## 6. Boîte à outils Haymitch
 
-Parcours invocables (skills sœurs, installées à côté de celle-ci). `/hay-help` explique l'ordre des étapes et l'utilité de chacun.
+Parcours invocables (skills frères, installés à côté de celui-ci). `/hay-help` explique l'ordre des étapes et l'utilité de chacun.
 
 | Commande | Moment où il la dégaine |
 |---|---|

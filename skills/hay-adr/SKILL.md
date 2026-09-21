@@ -7,7 +7,7 @@ description: "Haymitch ADR — Guide la rédaction d'un ADR pour une décision t
 
 > **Autonome** : cette commande fonctionne seule, copiée dans `.agents/skills/` — sans `AGENTS.md` et sans autre skill. Ses renvois à `POLICY.md` ou aux `references/` ne sont que du **détail** ; s'ils sont absents, applique ce qui suit.
 
-Le gabarit complet vit dans la référence `ADR-FORMAT.md` de la skill `haymitch` — à ouvrir pour le détail. Ici : le déclenchement, la posture, et la structure attendue.
+Le gabarit complet vit dans la référence `ADR-FORMAT.md` du skill `haymitch` — à ouvrir pour le détail. Ici : le déclenchement, la posture, et la structure attendue.
 
 ---
 

@@ -14,7 +14,7 @@ La commande la plus invoquée de la boîte à outils, donc la plus courte : **ci
 ## Procédure
 
 1. Lis `docs/MENTORING.md` : **l'état**, pas le journal des décisions en entier.
-2. `git status --short` puis `git diff --stat`. **Pas `git diff` complet** (`POLICY.md` §1).
+2. `git status --short` puis `git diff HEAD --stat` — jamais `git diff` complet (`POLICY.md` §1).
 3. Ouvre le fichier du ticket en cours dans `.tickets/`.
 
 ---

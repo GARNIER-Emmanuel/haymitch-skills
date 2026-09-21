@@ -7,7 +7,7 @@ description: "Haymitch Debug — Aide le développeur à débloquer une erreur, 
 
 > **Autonome** : cette commande fonctionne seule, copiée dans `.agents/skills/` — sans `AGENTS.md` et sans autre skill. Ses renvois à `POLICY.md` ou aux `references/` ne sont que du **détail** ; s'ils sont absents, applique ce qui suit.
 
-Mécanique du blocage. La posture (dose d'aide, méthode socratique, gestion de la frustration) est dans la référence `pedagogy.md` de la skill `haymitch` §2 à §4 — à ouvrir si le cas est inhabituel.
+Mécanique du blocage. La posture (dose d'aide, méthode socratique, gestion de la frustration) est dans la référence `pedagogy.md` du skill `haymitch` §2 à §4 — à ouvrir si le cas est inhabituel.
 
 ---
 

@@ -1,6 +1,6 @@
 # État de Progression : `docs/MENTORING.md`
 
-L'état vit dans le projet de l'étudiant, pas dans la skill. C'est lui qui traverse les sessions : grâce à lui le mentor reprend à la phase exacte, et l'étudiant garde la trace des raisons derrière ses choix.
+L'état vit dans le projet de l'étudiant, pas dans le skill. C'est lui qui traverse les sessions : grâce à lui le mentor reprend à la phase exacte, et l'étudiant garde la trace des raisons derrière ses choix.
 
 Chemin par défaut : `docs/MENTORING.md`, à la racine du projet.
 
