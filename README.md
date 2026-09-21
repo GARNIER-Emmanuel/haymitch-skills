@@ -2,205 +2,195 @@
 
 > *« Here's some advice: stay alive in production. »*
 
-**Sept skills d'agent qui transforment votre assistant IA en Tech Lead intraitable : il cadre, il découpe, il vérifie — et il refuse d'écrire la solution à votre place.**
+Un assistant IA classique vous pond trois cents lignes de code d'un coup. Le résultat tourne, mais vous n'avez rien appris. Vous ne savez pas pourquoi ce choix de transaction s'impose, ni pourquoi ce test a échoué.
 
-Java 21 · Spring Boot 3+ · Angular 17+ · React 18+ — TDD strict, du cadrage de l'idée jusqu'au ticket clos.
+Haymitch renverse la table : vous écrivez chaque ligne dans votre IDE, l'agent prend le rôle du Tech Lead. Il cadre le besoin, découpe les tranches de code, audite vos diffs et refuse catégoriquement de coder à votre place.
+
+Stacks supportées : Java 21 & Spring Boot 3+, Angular 17+, React 18+. TDD rigoureux, du premier cadrage au commit validé.
 
 [![Licence : MIT](https://img.shields.io/badge/licence-MIT-green.svg)](LICENSE)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-compatible-4B5563.svg)](https://agentskills.io)
-[![Skills](https://img.shields.io/badge/skills-7-blue.svg)](#-les-7-commandes)
+[![Skills](https://img.shields.io/badge/skills-7-blue.svg)](#les-7-commandes)
 
 ---
 
-## Le problème
-
-Demandez une fonctionnalité à un assistant IA : il vous rend trois cents lignes, deux classes de tests et une explication de texte. Ça marche. Vous n'avez rien appris.
-
-Vous n'avez pas écrit la ligne qui compte — celle où l'on comprend *pourquoi* le test échoue pour la bonne raison, *pourquoi* cette transaction plutôt qu'une autre, *pourquoi* ce découpage. Le code est là, la compétence n'est pas passée.
-
-**Haymitch inverse la charge : vous écrivez chaque ligne, l'agent encadre.**
-
-## Les trois invariants
-
-| Invariant | Ce qu'il garantit |
-|---|---|
-| **Pre-flight** | L'agent lit le diff réel avant de répondre (`git status --short`, `git diff HEAD --stat`) et signale le code douteux en tête de réponse, impact production à l'appui. Jamais de jugement sur déclaration. |
-| **`[STOP TDD]`** | Du code de production modifié **sans test dans le même diff** : l'agent bloque jusqu'au test **rouge** exécuté devant vous. |
-| **Anti-spoil** | Jamais de classe, de méthode ou de composant complet. Cinq doses d'aide, la dose 1 par défaut — une question qui met sur la voie. |
-
-Le verrou a une seule échappatoire, que **vous** déclarez : un incident ou une échéance de production. Elle est assumée, jamais devinée par l'agent.
-
-## 🎬 À quoi ça ressemble
+## Ce qui se passe dans votre terminal
 
 ```text
-Vous      /hay-feature  je veux que les clients s'inscrivent avec leur email
+Vous      /hay-feature je veux que les clients s'inscrivent avec leur email
 
-Haymitch  Trois questions, pas une de plus.
-          1. En une phrase, quel problème ça résout ?
-          2. Quelle est la toute première action d'un utilisateur ?
-          3. Quelles données entrent, et que doit renvoyer le système ?
+Haymitch  Trois questions, pas une de plus :
+          1. En une phrase, quel problème cela résout-il ?
+          2. Quelle est la première action utilisateur ?
+          3. Quelles données entrent et que doit renvoyer le système ?
 
-Vous      [vous répondez]
+Vous      [vous répondez aux trois questions]
 
-Haymitch  Cadrage consigné dans docs/MENTORING.md. Découpage : 01-enregistrer-un-client,
-          02-refuser-un-email-deja-utilise. Approuve-le ou corrige-le — c'est le
-          moment le moins cher pour changer d'avis. Ensuite : le contrat.
+Haymitch  Cadrage noté dans docs/MENTORING.md. Découpage proposé :
+          01-enregistrer-un-client, 02-refuser-un-email-deja-utilise.
+          Valide ou ajuste : c'est le moment le moins cher pour changer d'avis.
+          Ensuite : on attaque le contrat.
 
-Vous      [ClientController.java écrit, avec la validation]
+Vous      [ClientController.java codé avec la validation, sans test]
 
-Haymitch  [STOP TDD] — ClientController.java modifié, aucun test dans le diff.
-          Une seule action : le test qui échoue, exécuté devant moi.
-          /hay-debug sera là quand tu seras rouge. 🏹
+Haymitch  [STOP TDD] : ClientController.java modifié, aucun test dans le diff.
+          Une seule action possible : écris le test qui échoue et montre-le-moi.
+          /hay-debug t'aidera quand tu seras rouge. 🏹
 ```
 
-## ⚡ Installation
+---
+
+## Trois règles intransigeantes
+
+| Règle | Ce qu'elle impose sur le terrain |
+|---|---|
+| **Pre-flight systématique** | L'agent regarde votre diff git réel (`git status --short`, `git diff HEAD --stat`) avant chaque réponse. Zéro confiance aveugle, jugement sur pièces. |
+| **`[STOP TDD]`** | Du code de prod modifié sans test rouge dans le même diff ? L'agent bloque. Vous écrivez le test d'abord, ou vous ne passez pas. |
+| **Anti-spoil** | Jamais de composant ni de classe complète parachutée. L'aide commence à la dose 1 : une question ciblée pour vous mettre sur la piste. |
+
+Seule exception acceptée : un incident de production ou une urgence critique que vous déclarez vous-même.
+
+---
+
+## Installation en 30 secondes
 
 ```bash
-# Dans votre projet — installe les 7 skills pour les agents détectés
+# Dans votre projet : installe la suite pour vos agents détectés
 npx skills add GARNIER-Emmanuel/haymitch-skills
 
-# En global, pour tous vos projets
+# En global sur votre machine
 npx skills add GARNIER-Emmanuel/haymitch-skills -g
 
-# Voir ce qui sera installé, sans rien installer
+# Vérifier ce qui sera installé sans toucher à rien
 npx skills add GARNIER-Emmanuel/haymitch-skills --list
 ```
 
-Le CLI détecte vos agents et installe au bon endroit (`.agents/skills/` en canonique, `.claude/skills/` pour Claude Code, `~/.agents/skills/` en global, etc.). Installation manuelle possible :
+Le CLI détecte automatiquement vos outils (`.agents/skills/`, `.claude/skills/`, etc.). Si vous préférez cloner à la main :
 
 ```bash
 git clone https://github.com/GARNIER-Emmanuel/haymitch-skills.git
 cp -R haymitch-skills/skills/* ~/.agents/skills/     # ou <votre-projet>/.agents/skills/
 ```
 
-**Prérequis** : un agent compatible [Agent Skills](https://agentskills.io). Aucune dépendance, aucun script, aucun binaire : la suite est du Markdown. `git` est fortement recommandé — sans dépôt, `git init` devient le premier ticket.
+**Prérequis** : un agent compatible avec la spécification [Agent Skills](https://agentskills.io). Aucun runtime, aucun script externe, aucun binaire caché : uniquement du Markdown clair. Un dépôt `git` est vivement conseillé. Si votre projet n'en a pas, l'initialiser sera votre premier ticket.
 
-> **Sur les commandes `/hay-…`** : elles se déclenchent par leur **description**, donc aussi bien par `/hay-status` que par « où j'en suis ? ». Selon l'agent, la barre oblique est ou non une vraie commande ; dans le doute, demandez en clair.
+> **Astuce** : les commandes `/hay-...` fonctionnent via leur description. Vous pouvez taper `/hay-status` ou simplement demander « où en est-on ? ».
 
-## 🛠️ Les 7 commandes
+---
 
-| Commande | Rôle |
-|---|---|
-| **`/haymitch`** | Le Tech Lead principal : la méthode, les invariants, les règles par stack. Porte la politique normative. |
-| **`/hay-feature`** | Une idée brute → 3 questions → une roadmap de 3 à 6 jalons → 1 à 3 User Stories → des tickets tracer-bullet. |
-| **`/hay-status`** | Cinq lignes : jalon en cours, ticket, phase TDD, ce qui bloque, et la commande exacte à lancer. |
-| **`/hay-debug`** | Débloquer une erreur sans donner la solution : cause racine, question d'action, changement d'angle. |
-| **`/hay-review`** | Verdict binaire `[VALIDÉ]` / `[À CORRIGER]`, impact production, puis clôture et message de commit. |
-| **`/hay-adr`** | Consigner une décision difficile à inverser — et refuser un ADR qui n'en mérite pas. |
-| **`/hay-help`** | Le workflow, l'ordre des étapes, et ce que chaque commande vous évite. |
+## Les 7 commandes
 
-Chaque skill est **autonome** : copié seul, il reste opérationnel. Installez `/haymitch` en priorité — c'est lui qui porte la méthode et la politique.
-
-## 🔁 La boucle de travail
-
-1. **Cadrer** — une idée floue devient une **roadmap de 3 à 6 jalons** (des capacités démontrables, jamais des couches techniques), puis 1 à 3 User Stories. Aucune autre fonctionnalité ne s'ouvre avant que celle-ci soit finie de bout en bout.
-2. **Découper** — des tickets *tracer-bullet* : un chemin étroit mais **complet** à travers toutes les couches, livrable et vérifiable seul.
-3. **Implémenter** — un ticket à la fois, en 4 phases immuables : **contrat → test rouge → implémentation minimale → refactorisation**. L'ordre est non négociable : c'est le seul qui prouve que le test teste quelque chose.
-4. **Prouver** — les critères d'acceptation se cochent sur du code réel et un test vert, jamais sur une déclaration.
-5. **Clore** — votre message de commit au format Conventional Commit, validé avant la clôture. Le commit reste le vôtre. Un jalon entier bouclé, et Haymitch **annonce** le suivant : il ne vous demande pas de deviner.
-6. **Consigner** — toute décision difficile à inverser part dans un ADR, au moment où le raisonnement est encore disponible.
-
-## 📁 Ce que la suite écrit dans votre projet
-
-| Chemin | Qui l'écrit | À quoi ça sert |
+| Commande | Quand la lancer | Ce qu'elle fait |
 |---|---|---|
-| `docs/MENTORING.md` | l'agent | La vision, la **roadmap par jalons**, et l'état : ticket en cours, phase TDD, décisions datées. C'est ce qui permet de reprendre la session suivante à la phase exacte — et de savoir où va le projet. |
-| `.tickets/NN-nom.md` | vous | Un fichier par ticket, généré depuis le gabarit, coché sur preuve. |
-| `docs/adr/NNNN-nom.md` | vous | Les décisions structurantes, et le *pourquoi*. |
+| **`/haymitch`** | Au lancement ou pour cadrer la stack | Porte la méthode, les invariants et les règles d'architecture. |
+| **`/hay-feature`** | Devant une idée brute | Pose 3 questions, bâtit une roadmap de 3 à 6 jalons et découpe en tickets. |
+| **`/hay-status`** | Pour reprendre le fil | Affiche en 5 lignes votre jalon, votre ticket, votre phase TDD et la prochaine commande CLI. |
+| **`/hay-debug`** | Bloqué sur un test rouge ou une exception | Décode la cause racine et pose la question qui débloque, sans donner la solution. |
+| **`/hay-review`** | Ticket terminé | Rend un verdict binaire `[VALIDÉ]` ou `[À CORRIGER]`, puis valide votre message de commit. |
+| **`/hay-adr`** | Choix technique lourd | Guide la rédaction d'une décision d'architecture, et refuse ce qui n'en mérite pas. |
+| **`/hay-help`** | Hésitation sur la marche à suivre | Explique la suite des opérations et oriente vers le bon outil. |
 
-Rien d'autre, et jamais en dehors de votre projet. Le contenu du skill, lui, ne sort jamais de son dossier.
+Chaque skill est **autonome**. Installez `/haymitch` en premier : il contient le socle méthodologique complet.
 
-## 🛡️ Bonus 1 : le gardien permanent
+---
 
-Par défaut, la méthode s'applique quand une commande est invoquée. Pour que Haymitch surveille votre code **à chaque message, même sans commande**, ajoutez ce bloc à l'`AGENTS.md` de votre projet — c'est le seul fichier injecté à chaque tour, il vous appartient, et rien ne l'ajoute ou ne le retire à votre place.
+## Le flux de travail au quotidien
+
+1. **Cadrer** : une idée floue devient une roadmap de 3 à 6 jalons orientés valeur métier (jamais de jalons horizontaux comme « socle technique »). On traite une tranche à la fois.
+2. **Découper** : des tickets *tracer-bullet* qui traversent toutes les couches du système, de l'entrée HTTP jusqu'à la base de données.
+3. **Implémenter** : boucle TDD en 4 temps stricts : **contrat → test rouge → code minimal pour passer au vert → refactorisation**.
+4. **Prouver** : chaque critère d'acceptation se vérifie sur un test qui tourne et réussit devant l'agent.
+5. **Clore** : vous proposez un commit au format Conventional Commit. Le mentor valide la forme, clôture le ticket et enchaîne sur le suivant.
+6. **Consigner** : un choix d'architecture difficile à inverser part aussitôt dans un ADR, pendant que le contexte est encore chaud.
+
+---
+
+## Les traces laissées dans votre projet
+
+| Emplacement | Qui l'écrit | Ce qu'on y trouve |
+|---|---|---|
+| `docs/MENTORING.md` | l'agent | La vision, la roadmap, l'état d'avancement et le journal des décisions. |
+| `.tickets/NN-nom.md` | vous | Un fichier par ticket, découpé depuis le gabarit et coché sur preuves. |
+| `docs/adr/NNNN-nom.md` | vous | Les choix structurants avec leurs alternatives écartées et leurs conséquences. |
+
+Rien d'autre ne pollue votre projet. Le reste vit exclusivement dans les skills.
+
+---
+
+## Bonus 1 : surveillance active dans AGENTS.md
+
+Par défaut, Haymitch intervient quand vous l'appelez. Si vous voulez qu'il garde un œil sur votre code à chaque message (pre-flight automatique, blocage TDD, contrôle du diff), ajoutez ce bloc dans l'`AGENTS.md` de votre projet :
 
 ```markdown
-<!-- BEGIN haymitch — bloc optionnel, à retirer d'un seul geste -->
+<!-- BEGIN haymitch : bloc optionnel, à retirer d'un seul geste -->
 ## Mentorat Haymitch (skill `haymitch`)
 
 Pour ce projet, tu es **Haymitch**, le Tech Lead : le développeur écrit chaque ligne, tu cadres, tu découpes, tu vérifies. Politique complète et normative : `POLICY.md` du skill `haymitch`.
 
 Ces règles priment sur tout skill. Elles **ne priment pas** sur le reste de ce fichier : en cas de contradiction, la règle du projet l'emporte.
 
-1. **Pre-flight** — avant toute réponse, `git status --short` puis `git diff HEAD --stat` (`HEAD` : un fichier indexé disparaît d'un `git diff` seul), et ne lis que les fichiers concernés. **Jamais `git diff` complet.** Juge sur pièce, jamais sur déclaration.
-2. **`[STOP TDD]`** — du code de production (métier, UI, composant, configuration, migration) **sans test dans le même diff** : s'il demande à avancer, tu bloques jusqu'au test **RED** exécuté devant toi. Contrôle : `git diff HEAD --name-only`. Seule échappatoire, auto-déclarée : incident ou échéance de production.
-3. **Anti-spoil** — jamais de classe, de méthode ou de composant complet. Dose 1 par défaut (une question), jusqu'à 5 (la solution) sur incident prod déclaré. Demande vague → `[QUESTION INCOMPLÈTE]` : exige l'erreur complète, ce qu'il a tenté, ce qu'il attendait.
-4. **Termine par la prochaine commande** — `/hay-status`, `/hay-debug`, `/hay-feature`, `/hay-review`, `/hay-adr`, `/hay-help`. Jamais de fin de réponse sans action suivante.
+1. **Pre-flight** : avant toute réponse, `git status --short` puis `git diff HEAD --stat` (`HEAD` : un fichier indexé disparaît d'un `git diff` seul), et ne lis que les fichiers concernés. **Jamais `git diff` complet.** Juge sur pièce, jamais sur déclaration.
+2. **`[STOP TDD]`** : du code de production (métier, UI, composant, configuration, migration) **sans test dans le même diff** : s'il demande à avancer, tu bloques jusqu'au test **RED** exécuté devant toi. Contrôle : `git diff HEAD --name-only`. Seule échappatoire, auto-déclarée : incident ou échéance de production.
+3. **Anti-spoil** : jamais de classe, de méthode ou de composant complet. Dose 1 par défaut (une question), jusqu'à 5 (la solution) sur incident prod déclaré. Demande vague → `[QUESTION INCOMPLÈTE]` : exige l'erreur complète, ce qu'il a tenté, ce qu'il attendait.
+4. **Termine par la prochaine commande** : `/hay-status`, `/hay-debug`, `/hay-feature`, `/hay-review`, `/hay-adr`, `/hay-help`. Jamais de fin de réponse sans action suivante.
 <!-- END haymitch -->
 ```
 
-## 🛡️ Bonus 2 : rendre le commit inviolable
+---
 
-Si votre agent sait restreindre ses permissions, refusez l'écriture de l'historique git. La règle « le commit est le vôtre » cesse alors d'être une consigne : l'agent ne *peut* plus committer à votre place, même si on le lui demande.
+## Bonus 2 : interdire les commits automatiques
 
-## 🪶 Frugalité par conception
+Votre agent supporte la restriction de droits ? Retirez-lui la permission de modifier l'historique git. Ainsi, l'agent ne pourra physiquement jamais committer à votre place. La responsabilité du commit reste entre vos mains.
 
-Chaque skill est un **aiguilleur**, pas un pavé : le `SKILL.md` décrit la procédure et n'ouvre ses fichiers de `references/` que sur condition explicite, quand ils servent vraiment. Ordres de grandeur mesurés sur cette release, en français :
+---
 
-| Ce qui est chargé | Tokens |
+## Frugalité et consommation de tokens
+
+Chaque skill fonctionne comme un aiguilleur : le `SKILL.md` reste court et ne charge ses fichiers de références que si la situation l'exige. Ordres de grandeur mesurés :
+
+| Contexte chargé | Tokens consommés |
 |---|---|
-| Le catalogue des 7 descriptions (permanent) | ~600 |
-| `/hay-status` | ~600 |
-| `/hay-adr`, `/hay-debug`, `/hay-feature` | ~800 – 1 100 |
-| `/hay-review`, `/hay-help` | ~1 000 – 1 250 |
-| `/haymitch` + sa politique + un référentiel de stack | ~4 150 |
-| La suite entière (jamais chargée d'un coup) | ~20 000 |
+| Catalogue des 7 descriptions (permanent) | ~600 |
+| Commande `/hay-status` | ~600 |
+| Commandes `/hay-adr`, `/hay-debug`, `/hay-feature` | ~800 à 1 100 |
+| Commandes `/hay-review`, `/hay-help` | ~1 000 à 1 250 |
+| `/haymitch` + politique + référentiel de stack | ~4 150 |
+| Suite complète (jamais chargée d'un coup) | ~20 000 |
 
-Deux règles de contexte sont inscrites dans la politique : **jamais de `git diff` complet** — un gros diff injecté à chaque tour finit par évincer les règles elles-mêmes — et **les références ne s'ouvrent qu'à la demande**. C'est ce qui permet à la suite de tenir dans un contexte de travail réel.
+Deux gardes-fous protègent votre fenêtre de contexte : **aucun `git diff` brut intégral** (un gros diff noie les consignes) et **chargement ciblé des documentations**.
 
-La roadmap par jalons obéit à la même discipline : elle vit dans le fichier d'état, **pas dans le bloc `AGENTS.md`**. Elle se paie au cadrage et aux frontières de jalon, jamais à chaque message.
+---
 
-## 🤖 Compatibilité
+## Compatibilité
 
-Les skills suivent la spécification [Agent Skills](https://agentskills.io) et s'installent via le CLI [`skills`](https://skills.sh), qui gère plus de 75 agents.
+La suite s'adapte à plus de 75 agents via la commande [`skills`](https://skills.sh) :
 
-| Agent | Dossier projet | Dossier global |
+| Environnement | Dossier projet | Dossier global |
 |---|---|---|
-| Antigravity, Codex, Cursor, Gemini CLI, GitHub Copilot, OpenCode, Warp, Zed, Cline, Kilo Code… | `.agents/skills/` | `~/.agents/skills/` ou spécifique à l'agent |
+| Antigravity, Cursor, Codex, Gemini CLI, Copilot, Warp, Zed, Cline... | `.agents/skills/` | `~/.agents/skills/` |
 | Claude Code | `.claude/skills/` | `~/.claude/skills/` |
 
-`npx skills add` détecte les agents présents sur votre machine et choisit le bon dossier. La suite n'utilise aucune fonctionnalité spécifique à un agent : uniquement `name`, `description` et du Markdown.
+---
 
-## 📦 Structure du dépôt
+## Questions fréquentes
 
-```text
-skills/
-├── haymitch/                  # la méthode et la politique normative
-│   ├── SKILL.md               # aiguilleur : invariants, cycle, routage
-│   ├── POLICY.md              # politique complète : pre-flight, [STOP TDD], anti-spoil
-│   ├── README.md              # installation, autonomie, bonus AGENTS.md
-│   └── references/
-│       ├── vertical-slice-workflow.md   # les 4 phases TDD en détail
-│       ├── ticket-template.md           # gabarit de ticket tracer-bullet
-│       ├── ADR-FORMAT.md                # gabarit d'ADR
-│       ├── progression.md               # format de docs/MENTORING.md
-│       ├── pedagogy.md                  # posture, dose d'aide, erreurs, CLI
-│       ├── rules-general.md             # standards toutes stacks
-│       ├── rules-spring.md              # Java 21 / Spring Boot 3+
-│       ├── rules-angular.md             # Angular 17+
-│       └── rules-react.md               # React 18+
-├── hay-status/SKILL.md
-├── hay-debug/SKILL.md
-├── hay-feature/SKILL.md
-├── hay-review/SKILL.md
-├── hay-adr/SKILL.md
-└── hay-help/SKILL.md
-```
+**Mon agent ne voit pas les skills.**  
+Vérifiez la présence du fichier `SKILL.md` et de son frontmatter YAML (`name` et `description`). La commande `npx skills list` confirme ce qui est actif.
 
-## ❓ Dépannage
+**Une commande ne répond pas.**  
+Les descriptions sont en français. Utilisez des requêtes en français ou tapez le nom du skill (`/hay-status`).
 
-**L'agent ne trouve aucun skill.** Vérifiez que le dossier installé contient bien `SKILL.md`, avec `name` et `description` dans son frontmatter. `npx skills list` montre ce qui est installé.
+**Haymitch n'intervient pas spontanément.**  
+Comportement normal : il attend vos commandes. Pour une surveillance continue à chaque message, intégrez le bloc du bonus 1 dans votre `AGENTS.md`.
 
-**Un skill ne se déclenche pas.** Les descriptions sont en français : demandez en français, ou nommez la commande (`/hay-status`). Si l'agent hésite entre deux skills, nommez-en un explicitement.
+---
 
-**La commande `/hay-status` n'existe pas dans mon agent.** Ce n'est pas une commande native : c'est le nom du skill. Demandez « où j'en suis ? » — le résultat est le même.
+## Participer
 
-**Haymitch ne fait rien sans que je tape une commande.** C'est le comportement par défaut. Ajoutez le bloc `AGENTS.md` du bonus 1 pour qu'il surveille chaque message.
+Une suggestion ou un retour d'expérience ? Ouvrez une [issue](https://github.com/GARNIER-Emmanuel/haymitch-skills/issues). Précisez votre stack, votre agent et le comportement observé. Une règle clé : `POLICY.md` est la source de vérité unique. Les autres fichiers pointent vers lui pour éviter toute redondance.
 
-## 🤝 Contribuer
+---
 
-Les retours sont bienvenus : ouvrez une [issue](https://github.com/GARNIER-Emmanuel/haymitch-skills/issues) en décrivant le contexte (stack, agent, ce que Haymitch a fait et ce qu'il aurait dû faire). Une règle ajoutée doit avoir **un seul domicile** : `POLICY.md` fait foi, les autres fichiers y renvoient au lieu de la paraphraser — c'est ce qui garde la suite frugale et cohérente.
-
-## 📄 Licence
+## Licence
 
 [MIT](LICENSE) © 2026 Emmanuel GARNIER BOIDUN

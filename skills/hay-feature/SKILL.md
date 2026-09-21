@@ -1,29 +1,29 @@
 ---
 name: hay-feature
-description: "Haymitch Feature — Transforme une idée brute en une roadmap de 3 à 6 jalons, puis en 1 à 3 User Stories et en tickets tracer-bullet dans .tickets/, et interdit toute autre fonctionnalité jusqu'à ce que celle-ci soit finie de bout en bout. Utiliser quand le développeur décrit une fonctionnalité à construire, une idée à cadrer, une roadmap à définir, ou demande de découper du travail en tickets."
+description: "Haymitch Feature : transforme une idée brute en roadmap de 3 à 6 jalons, puis en 1 à 3 User Stories et en tickets tracer-bullet dans .tickets/, et interdit toute autre fonctionnalité jusqu'à ce que celle-ci soit finie de bout en bout. Utiliser quand le développeur décrit une fonctionnalité à construire, une idée à cadrer, une roadmap à définir, ou demande de découper du travail en tickets."
 ---
 
-# /hay-feature — D'une idée brute à des tickets
+# /hay-feature : d'une idée brute à des tickets
 
-> **Autonome** : cette commande fonctionne seule, copiée dans `.agents/skills/` — sans `AGENTS.md` et sans autre skill. Ses renvois à `POLICY.md` ou aux `references/` ne sont que du **détail** ; s'ils sont absents, applique ce qui suit.
+> **Autonome** : cette commande fonctionne seule, copiée dans `.agents/skills/` (sans `AGENTS.md` et sans autre skill). Ses renvois à `POLICY.md` ou aux `references/` ne sont que du **détail** ; s'ils sont absents, applique ce qui suit.
 
-Un seul parcours en deux temps, jamais l'un sans l'autre : cadrer, puis découper. Les gabarits complets vivent dans les références `vertical-slice-workflow.md` et `ticket-template.md` du skill `haymitch` — à ouvrir pour le détail. Ce qui suit suffit pour découper.
+Un seul parcours en deux temps, jamais l'un sans l'autre : cadrer, puis découper. Les gabarits complets vivent dans les références `vertical-slice-workflow.md` et `ticket-template.md` du skill `haymitch` (à ouvrir pour le détail). Ce qui suit suffit pour découper.
 
 ---
 
-## Temps 1 — Cadrer : 3 questions, pas une de plus
+## Temps 1 : Cadrer (3 questions, pas une de plus)
 
 1. **L'intention métier** : en une phrase, quel problème le projet résout-il ?
 2. **Le premier cas d'usage** : quelle est la toute première action qu'un utilisateur doit pouvoir faire ?
 3. **Le contrat de données** : quelles informations entrent, et que doit renvoyer le système ?
 
-Puis **tu proposes la roadmap : 3 à 6 jalons**, une **capacité démontrable** par ligne, sans date ni estimation, ordonnés par dépendances. Le jalon 1 est un **walking skeleton** — jamais « socle technique + auth ». Il valide l'ordre ou le corrige : **l'ordre technique est ton expertise, la priorité métier est son droit.**
+Puis **tu proposes la roadmap : 3 à 6 jalons**, une **capacité démontrable** par ligne, sans date ni estimation, ordonnés par dépendances. Le jalon 1 est un **walking skeleton**, jamais « socle technique + auth ». Il valide l'ordre ou le corrige : **l'ordre technique est ton expertise, la priorité métier est son droit.**
 
-Il n'a pas besoin d'un cahier des charges. Il a besoin d'une tranche. Sors **1 à 3 User Stories**, puis **interdis toute autre fonctionnalité** : on réalise celle-ci de bout en bout avant d'en ouvrir une autre — **lister les jalons n'autorise pas à les ouvrir**.
+Il n'a pas besoin d'un cahier des charges. Il a besoin d'une tranche. Sors **1 à 3 User Stories**, puis **interdis toute autre fonctionnalité** : on réalise celle-ci de bout en bout avant d'en ouvrir une autre (**lister les jalons n'autorise pas à les ouvrir**).
 
 ---
 
-## Temps 2 — Découper en tickets tracer-bullet
+## Temps 2 : Découper en tickets tracer-bullet
 
 - **Tu proposes le découpage, il génère les fichiers** dans `.tickets/`, un fichier par ticket (jamais un fichier combiné), selon le gabarit. Tu vérifies les fichiers produits.
 - Un ticket est une **tranche verticale** : un chemin étroit mais **complet** à travers toutes les couches, livrable et vérifiable seul. « Créer la table » n'est pas un ticket ; « enregistrer un client » en est un.

@@ -10,9 +10,9 @@ Les ADR vivent dans `docs/adr/`, un fichier par décision : `NNNN-nom-court.md`.
 
 Les trois conditions doivent être vraies **en même temps** :
 
-1. **Difficile à inverser** — revenir dessus coûte cher.
-2. **Surprenant sans contexte** — un lecteur futur se demandera pourquoi.
-3. **Vrai arbitrage** — il existait des alternatives réelles, et l'une a été choisie pour des raisons précises.
+1. **Difficile à inverser** : revenir dessus coûte cher.
+2. **Surprenant sans contexte** : un lecteur futur se demandera pourquoi.
+3. **Vrai arbitrage** : il existait des alternatives réelles, et l'une a été choisie pour des raisons précises.
 
 Sinon, pas d'ADR : une décision facile à inverser sera inversée, et une décision évidente n'a rien à consigner.
 

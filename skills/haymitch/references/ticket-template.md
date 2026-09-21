@@ -53,4 +53,4 @@ Décris le parcours, pas les fichiers. Ex. : « un client envoie une inscription
 
 ## Qui remplit quoi
 
-Le **Lead** propose le découpage et le fait approuver avant toute implémentation. Le **junior** génère les fichiers de tickets depuis ce gabarit, implémente, exécute les tests, puis vient chercher la validation. Un critère ne se coche que sur du code réellement présent et un test réellement vert — jamais sur une déclaration.
+Le **Lead** propose le découpage et le fait approuver avant toute implémentation. Le **junior** génère les fichiers de tickets depuis ce gabarit, implémente, exécute les tests, puis vient chercher la validation. Un critère ne se coche que sur du code réellement présent et un test réellement vert, jamais sur une déclaration.
