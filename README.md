@@ -57,19 +57,20 @@ Haymitch  [STOP TDD] — ClientController.java modifié, aucun test dans le diff
 
 ```bash
 # Dans votre projet — installe les 7 skills pour les agents détectés
-npx skills add <TON-PSEUDO-GITHUB>/haymitch-skills
+npx skills add GARNIER-Emmanuel/haymitch-skills
 
 # En global, pour tous vos projets
-npx skills add <TON-PSEUDO-GITHUB>/haymitch-skills -g
+npx skills add GARNIER-Emmanuel/haymitch-skills -g
 
 # Voir ce qui sera installé, sans rien installer
-npx skills add <TON-PSEUDO-GITHUB>/haymitch-skills --list
+npx skills add GARNIER-Emmanuel/haymitch-skills --list
 ```
 
 Le CLI détecte vos agents et installe au bon endroit (`.agents/skills/` en canonique, `.claude/skills/` pour Claude Code, `~/.agents/skills/` en global, etc.). Installation manuelle possible :
 
 ```bash
-cp -R skills/* ~/.agents/skills/        # ou <votre-projet>/.agents/skills/
+git clone https://github.com/GARNIER-Emmanuel/haymitch-skills.git
+cp -R haymitch-skills/skills/* ~/.agents/skills/     # ou <votre-projet>/.agents/skills/
 ```
 
 **Prérequis** : un agent compatible [Agent Skills](https://agentskills.io). Aucune dépendance, aucun script, aucun binaire : la suite est du Markdown. `git` est fortement recommandé — sans dépôt, `git init` devient le premier ticket.
@@ -88,7 +89,7 @@ cp -R skills/* ~/.agents/skills/        # ou <votre-projet>/.agents/skills/
 | **`/hay-adr`** | Consigner une décision difficile à inverser — et refuser un ADR qui n'en mérite pas. |
 | **`/hay-help`** | Le workflow, l'ordre des étapes, et ce que chaque commande vous évite. |
 
-Chaque skill est **autonome** : copiée seule, elle reste opérationnelle. Installez `/haymitch` en priorité — c'est elle qui porte la méthode et la politique.
+Chaque skill est **autonome** : copié seul, il reste opérationnel. Installez `/haymitch` en priorité — c'est lui qui porte la méthode et la politique.
 
 ## 🔁 La boucle de travail
 
@@ -107,7 +108,7 @@ Chaque skill est **autonome** : copiée seule, elle reste opérationnelle. Insta
 | `.tickets/NN-nom.md` | vous | Un fichier par ticket, généré depuis le gabarit, coché sur preuve. |
 | `docs/adr/NNNN-nom.md` | vous | Les décisions structurantes, et le *pourquoi*. |
 
-Rien d'autre, et jamais en dehors de votre projet. Le contenu de la skill, lui, ne sort jamais de son dossier.
+Rien d'autre, et jamais en dehors de votre projet. Le contenu du skill, lui, ne sort jamais de son dossier.
 
 ## 🛡️ Bonus 1 : le gardien permanent
 
@@ -188,17 +189,17 @@ skills/
 
 ## ❓ Dépannage
 
-**L'agent ne trouve aucune skill.** Vérifiez que le dossier installé contient bien `SKILL.md`, avec `name` et `description` dans son frontmatter. `npx skills list` montre ce qui est installé.
+**L'agent ne trouve aucun skill.** Vérifiez que le dossier installé contient bien `SKILL.md`, avec `name` et `description` dans son frontmatter. `npx skills list` montre ce qui est installé.
 
-**Une skill ne se déclenche pas.** Les descriptions sont en français : demandez en français, ou nommez la commande (`/hay-status`). Si l'agent hésite entre deux skills, nommez-en une explicitement.
+**Un skill ne se déclenche pas.** Les descriptions sont en français : demandez en français, ou nommez la commande (`/hay-status`). Si l'agent hésite entre deux skills, nommez-en un explicitement.
 
-**La commande `/hay-status` n'existe pas dans mon agent.** Ce n'est pas une commande native : c'est le nom de la skill. Demandez « où j'en suis ? » — le résultat est le même.
+**La commande `/hay-status` n'existe pas dans mon agent.** Ce n'est pas une commande native : c'est le nom du skill. Demandez « où j'en suis ? » — le résultat est le même.
 
 **Haymitch ne fait rien sans que je tape une commande.** C'est le comportement par défaut. Ajoutez le bloc `AGENTS.md` du bonus 1 pour qu'il surveille chaque message.
 
 ## 🤝 Contribuer
 
-Les retours sont bienvenus : ouvrez une *issue* en décrivant le contexte (stack, agent, ce que Haymitch a fait et ce qu'il aurait dû faire). Une règle ajoutée doit avoir **un seul domicile** : `POLICY.md` fait foi, les autres fichiers y renvoient au lieu de la paraphraser — c'est ce qui garde la suite frugale et cohérente.
+Les retours sont bienvenus : ouvrez une [issue](https://github.com/GARNIER-Emmanuel/haymitch-skills/issues) en décrivant le contexte (stack, agent, ce que Haymitch a fait et ce qu'il aurait dû faire). Une règle ajoutée doit avoir **un seul domicile** : `POLICY.md` fait foi, les autres fichiers y renvoient au lieu de la paraphraser — c'est ce qui garde la suite frugale et cohérente.
 
 ## 📄 Licence
 
