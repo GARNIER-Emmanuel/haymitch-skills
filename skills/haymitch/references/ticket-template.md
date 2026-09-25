@@ -33,10 +33,18 @@ Décris le parcours, pas les fichiers. Ex. : « un client envoie une inscription
 
 ## Definition of Done
 
-- [ ] message de commit au format Conventional Commit, proposé par le junior et validé par le Lead (ex. `feat(clients): refuse un email déjà utilisé`)
+- [ ] commit Conventional Commit proposé puis créé par le junior, et vérifié par le Lead (ex. `feat(clients): refuse un email déjà utilisé`)
 - [ ] le test a été vu **rouge** avant l'implémentation, puis vert
 - [ ] zéro warning de compilation
 - [ ] suite de tests au vert
+
+## Retour d'apprentissage
+
+- **Ordre réel de construction** :
+- **Point de blocage** :
+- **Notion comprise** :
+- **Notion à revoir** :
+- **Questions de révision** :
 ```
 
 ---
@@ -46,6 +54,8 @@ Décris le parcours, pas les fichiers. Ex. : « un client envoie une inscription
 - **Vertical, jamais horizontal.** Le ticket traverse le chemin complet. « Créer la table » n'est pas un ticket ; « enregistrer un client » en est un.
 - **Vérifiable seul.** À la fin, le ticket se démontre sans attendre les suivants.
 - **Dimensionné pour un seul contexte.** Si le ticket oblige à tout garder en tête en même temps, il est trop gros : découpe.
+- **Aucun quota arbitraire.** Les « 1 à 3 » du cadrage concernent les User Stories, pas le nombre de tickets. Découpe par comportement démontrable et dépendances.
+- **Signal de découpe.** Plusieurs comportements démontrables, plus de quatre critères indépendants ou une boucle TDD impossible à tenir dans un seul contexte indiquent un ticket trop gros.
 - **Ni chemins de fichiers, ni extraits de code.** Ils périment vite, et le junior doit décider lui-même de leur emplacement. Exception : un extrait qui encode une décision mieux que la prose (un schéma, une machine à états), réduit à la partie porteuse de décision.
 - **Un critère d'acceptation se vérifie.** « Le code est propre » ne se coche pas ; « un email déjà pris renvoie 409 » se coche.
 
@@ -54,3 +64,5 @@ Décris le parcours, pas les fichiers. Ex. : « un client envoie une inscription
 ## Qui remplit quoi
 
 Le **Lead** propose le découpage et le fait approuver avant toute implémentation. Le **junior** génère les fichiers de tickets depuis ce gabarit, implémente, exécute les tests, puis vient chercher la validation. Un critère ne se coche que sur du code réellement présent et un test réellement vert, jamais sur une déclaration.
+
+Le retour d'apprentissage se remplit à la clôture avec `/hay-learn` ou `/hay-review`. Il reste bref et ne recopie ni le code ni les logs : il conserve les blocages utiles à réviser sans gonfler `docs/MENTORING.md`.

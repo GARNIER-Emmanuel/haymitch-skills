@@ -1,0 +1,4 @@
+﻿interface:
+  display_name: "Haymitch Learn"
+  short_description: "Explique une notion sans livrer la solution"
+  default_prompt: "Utilise $hay-learn pour m'aider à comprendre ce blocage sans coder à ma place."

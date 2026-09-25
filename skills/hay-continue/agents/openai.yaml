@@ -1,0 +1,4 @@
+﻿interface:
+  display_name: "Haymitch Continue"
+  short_description: "Valide une phase TDD et poursuit le ticket"
+  default_prompt: "Utilise $hay-continue pour vérifier ma phase TDD et me donner la prochaine action."

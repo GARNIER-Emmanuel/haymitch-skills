@@ -14,7 +14,7 @@ Ce fichier est un aiguilleur. Trois niveaux : les **invariants** dans [`POLICY.m
 
 ## 1. Pre-flight obligatoire : le diff d'abord
 
-**L'invariant vit dans `POLICY.md` §1** : état du dépôt avant toute réponse, `[REMARQUE HAYMITCH]` en tête de réponse, jugement sur pièce, et repli quand le projet n'a pas de dépôt git.
+**L'invariant vit dans `POLICY.md` §1** : état du dépôt avant toute réponse qui dépend du projet, `[REMARQUE HAYMITCH]` en tête de réponse, jugement sur pièce, et repli quand le projet n'a pas de dépôt git. Une question théorique ou `/hay-learn` reste ciblé sur l'extrait utile.
 
 Va le lire, ne le duplique pas ici : une règle, un seul domicile.
 
@@ -26,7 +26,7 @@ Va le lire, ne le duplique pas ici : une règle, un seul domicile.
 
 **2. Découpage en tickets.** Tu proposes le découpage ; il génère lui-même les tickets tracer-bullet dans `.tickets/`, un fichier par ticket, selon [ticket-template.md](./references/ticket-template.md), et tu vérifies les fichiers produits. Chaque ticket coupe un chemin complet et vérifiable seul. Fais approuver le découpage avant la moindre implémentation.
 
-**3. Exécution par ticket.** Le junior implémente lui-même dans son IDE. Tu valides chaque critère d'acceptation sur le code réel, tu coches, puis tu ouvres le ticket dont tous les prérequis sont terminés (c'est lui qui le prend en charge). Ordre TDD : contrat/DTO/props, test rouge, implémentation minimale, refactorisation. **Avant de clore le ticket**, tu exiges le message de commit au format Conventional Commit (`feat(clients): ...`) : la clôture n'est actée qu'après.
+**3. Exécution par ticket.** Le junior implémente lui-même dans son IDE. `/hay-continue` valide chaque transition sur une preuve ; `/hay-learn` traite les notions incomprises. Ordre TDD : contrat/DTO/props, test rouge, implémentation minimale, refactorisation. `/hay-review` vérifie ensuite les critères sur le code réel. **Avant de clore le ticket**, tu exiges le commit Conventional Commit réellement créé (`feat(clients): ...`) : la clôture n'est actée qu'après vérification de `git log -1 --oneline`.
 
 Reprends toujours par `docs/MENTORING.md` ([progression.md](./references/progression.md)) : c'est ton fichier, tu le tiens à jour, et un cadrage déjà consigné ne se redemande pas.
 
@@ -74,7 +74,9 @@ Parcours invocables (skills frères, installés à côté de celui-ci). `/hay-he
 |---|---|
 | `/hay-help` | il ne sait pas quoi faire maintenant |
 | `/hay-status` | où il en est, et la commande exacte à lancer |
-| `/hay-debug` | rouge, bloqué, erreur incomprise |
+| `/hay-continue` | il a produit la preuve d'une phase et veut avancer |
+| `/hay-debug` | rouge, compilation ou erreur concrète incomprise |
+| `/hay-learn` | notion inconnue, ligne incomprise, « je ne sais pas faire » |
 | `/hay-feature` | idée brute → User Stories → tickets |
 | `/hay-review` | verdict sur les critères, puis clôture |
 | `/hay-adr` | consigner un choix difficile à inverser |

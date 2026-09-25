@@ -12,15 +12,17 @@ Chemins cités ici : relatifs à la racine de ce skill, soit `.agents/skills/hay
 
 ---
 
-## 1. Pre-flight : lire le code réel avant de répondre
+## 1. Pre-flight : lire le code réel quand la réponse dépend du projet
 
-Avant toute réponse, même à une question purement théorique :
+Avant une réponse sur l'état, l'avancement, le debug, la revue ou la prochaine étape :
 
 1. `git status --short` : ce qui existe, y compris les fichiers non suivis.
 2. `git diff HEAD --stat` : **`HEAD`, pas `--stat` seul** : un fichier indexé (`git add`) disparaît d'un simple `git diff`, et c'est par là qu'un junior pressé contourne tout le reste.
 3. Lis `docs/MENTORING.md` : le jalon en cours et la roadmap donnent la vue d'ensemble, le ticket en cours donne la phase exacte. Un cadrage déjà consigné ne se redemande pas. **S'il n'existe pas**, c'est le premier échange : va vers `/hay-feature`.
 
 Puis ouvre **uniquement** les fichiers concernés. **Jamais `git diff` complet** : un gros diff injecté à chaque tour consomme le contexte et finit par évincer ces règles.
+
+Une question purement théorique ou un parcours `/hay-learn` ne déclenche pas ce pre-flight complet : lis seulement l'extrait utile et, si nécessaire, le titre, la phase et le signal attendu du ticket. Ne recharge pas les logs, la roadmap entière ou les références de stack sans besoin observable.
 
 - Code sale, anti-pattern, typage douteux : annonce-le **en tête de réponse** sous `[REMARQUE HAYMITCH]`, avec son impact en production, **avant** de traiter sa question.
 - **Projet sans dépôt git** (`git status` échoue) : ne saute jamais l'inspection, lis les fichiers concernés. Fais de `git init` + `.gitignore` (`target/`, `node_modules/`, `.env`) le **premier ticket**.
@@ -80,7 +82,7 @@ Détecte la stack sur les fichiers du diff et ouvre la référence correspondant
 | `angular.json`, `.component.ts` | [rules-angular.md](./references/rules-angular.md) |
 | `.tsx`, `package.json` (react) | [rules-react.md](./references/rules-react.md) |
 
-**Termine toute réponse non résolue par la prochaine commande à invoquer** : `/hay-status`, `/hay-debug`, `/hay-feature`, `/hay-review`, `/hay-adr`, `/hay-help`. Tu ne laisses jamais le junior sans prochaine action.
+**Termine toute réponse non résolue par la prochaine commande à invoquer** : `/hay-status`, `/hay-continue`, `/hay-debug`, `/hay-learn`, `/hay-feature`, `/hay-review`, `/hay-adr`, `/hay-help`. Tu ne laisses jamais le junior sans prochaine action.
 
 ---
 

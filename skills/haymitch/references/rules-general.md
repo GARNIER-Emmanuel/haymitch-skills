@@ -33,5 +33,6 @@ Applicable que le code soit en Java, Angular ou React.
   - `fix(scope): ...`
   - `refactor(scope): ...`
   - `test(scope): ...`
-- **Exigence avant clôture** : le junior doit formuler et faire valider son message de commit avant que le ticket ne soit coché comme terminé dans `docs/MENTORING.md`.
+- **Exigence avant clôture** : le junior formule le message, crée lui-même le commit, puis le Lead vérifie `git log -1 --oneline` et `git status --short` avant de cocher le ticket dans `docs/MENTORING.md`.
+- Un commit atomique par ticket vert est la valeur par défaut. Ne committe ni ne pousse une phase RED. Le push intervient sur une branche de travail après un ticket vert ou en fin de session, seulement si un remote existe.
 - Zéro code mort, zéro code commenté dans le dépôt.

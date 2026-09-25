@@ -9,6 +9,8 @@ description: "Haymitch Debug : aide le développeur à débloquer une erreur, un
 
 Mécanique du blocage. La posture (dose d'aide, méthode socratique, gestion de la frustration) est dans la référence `pedagogy.md` du skill `haymitch` §2 à §4 (à ouvrir si le cas est inhabituel).
 
+Cette commande exige une erreur observable : stacktrace, compilation, assertion ou comportement inattendu. S'il ne comprend pas une notion ou dit seulement « je ne sais pas faire », route vers `/hay-learn` sans exiger une erreur artificielle.
+
 ---
 
 ## Avant de répondre
@@ -33,6 +35,8 @@ S'il n'a pas fourni **le message d'erreur complet, ce qu'il a tenté, ce qu'il a
 3. Fais-lui écrire l'algorithme **en français ou en pseudo-code** avant de le traduire.
 
 S'il est bloqué une troisième fois, tu ne changes pas de règle : tu changes l'angle.
+
+Si le blocage vient désormais du modèle mental plutôt que de l'erreur, passe à `/hay-learn` : l'explication conceptuelle et ligne par ligne n'appartient pas à ce diagnostic.
 
 ---
 

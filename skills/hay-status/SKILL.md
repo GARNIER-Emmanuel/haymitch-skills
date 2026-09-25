@@ -7,7 +7,7 @@ description: "Haymitch Status : fait le point sur la session de mentorat (ticket
 
 > **Autonome** : cette commande fonctionne seule, copiée dans `.agents/skills/` (sans `AGENTS.md` et sans autre skill). Ses renvois à `POLICY.md` ou aux `references/` ne sont que du **détail** ; s'ils sont absents, applique ce qui suit.
 
-La commande la plus invoquée de la boîte à outils, donc la plus courte : **cinq lignes maximum, puis une commande à copier-coller**. Jamais de paragraphe, jamais son diff rediffusé (il l'a écrit, il le connaît).
+La commande la plus invoquée de la boîte à outils, donc la plus courte : **six lignes maximum, commande comprise**. Jamais de paragraphe, jamais son diff rediffusé (il l'a écrit, il le connaît). Elle est strictement en lecture seule : `/hay-continue` valide et avance les phases.
 
 ---
 
@@ -26,6 +26,7 @@ Jalon 2/4 · Ticket 03/07 : refus-email-deja-utilise
 Phase 2/4 : Test d'abord (RED)
 Fait    : contrat (Record + @Email) figé et validé
 Bloque  : le test ne compile pas (ce n'est pas encore un RED)
+Pourquoi : obtenir un échec causé par le comportement absent
 Action  : ./mvnw test -Dtest=ClientServiceTest#shouldRejectDuplicateEmail
 ```
 
@@ -38,5 +39,6 @@ S'il n'y a pas de ticket en cours : l'intention en une phrase, puis `/hay-featur
 - **Une seule** commande à la fin, celle de la phase en cours, exécutable telle quelle. Jamais une liste d'options : c'est à toi de savoir où il en est.
 - Une phase ne se coche que si tu l'as **vue** franchie. La phase 2 (RED) ne se coche que sur un échec montré : un test écrit après le code ne la valide pas.
 - Signale un écart TDD (`POLICY.md` §2) **en une ligne**, pas en dissertation : ce n'est pas le sujet de `/hay-status`.
-- Reste factuel. `/hay-status` est un instrument de bord, pas une évaluation : les verdicts se rendent dans `/hay-review`.
+- Reste factuel. `/hay-status` est un instrument de bord, pas une évaluation : `/hay-continue` valide une phase et `/hay-review` clôt le ticket.
+- Si la commande apparaît pour la première fois ou s'il demande ce qu'elle signifie, explique brièvement chaque argument et le résultat attendu, sans charger le reste du projet.
 - Si la commande à venir échoue une deuxième fois d'affilée, la prochaine action est `/hay-debug`, pas de relancer.

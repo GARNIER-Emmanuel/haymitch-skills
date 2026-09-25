@@ -10,7 +10,7 @@ Stacks supportées : Java 21 & Spring Boot 3+, Angular 17+, React 18+. TDD rigou
 
 [![Licence : MIT](https://img.shields.io/badge/licence-MIT-green.svg)](LICENSE)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-compatible-4B5563.svg)](https://agentskills.io)
-[![Skills](https://img.shields.io/badge/skills-7-blue.svg)](#les-7-commandes)
+[![Skills](https://img.shields.io/badge/skills-9-blue.svg)](#les-9-commandes)
 
 ---
 
@@ -35,7 +35,22 @@ Vous      [ClientController.java codé avec la validation, sans test]
 
 Haymitch  [STOP TDD] : ClientController.java modifié, aucun test dans le diff.
           Une seule action possible : écris le test qui échoue et montre-le-moi.
-          /hay-debug t'aidera quand tu seras rouge. 🏹
+          /hay-learn t'aidera si tu ne comprends pas ce que ce RED doit prouver. 🏹
+
+Vous      /hay-learn je ne comprends pas ce que mon test rouge doit vérifier
+
+Haymitch  Le RED doit échouer parce que le comportement métier manque, pas parce
+          que le test est cassé. Si POST /clients n'existe pas encore, quel statut
+          ton test doit-il observer maintenant, et lequel attend-il à la fin ?
+
+Vous      [écrit ClientApiTest, l'exécute et montre : attendu 201, obtenu 404]
+          /hay-continue
+
+Haymitch  [PHASE VALIDÉE] Phase 2 — RED
+          Preuve   : ClientApiTest atteint POST /clients et échoue sur le 404 observé.
+          Avance   : phase 3 — implémentation minimale.
+          Objectif : faire passer uniquement ce cas nominal.
+          Action   : écris le minimum nécessaire, puis relance ce test ciblé.
 ```
 
 ---
@@ -44,7 +59,7 @@ Haymitch  [STOP TDD] : ClientController.java modifié, aucun test dans le diff.
 
 | Règle | Ce qu'elle impose sur le terrain |
 |---|---|
-| **Pre-flight systématique** | L'agent regarde votre diff git réel (`git status --short`, `git diff HEAD --stat`) avant chaque réponse. Zéro confiance aveugle, jugement sur pièces. |
+| **Pre-flight ciblé** | L'agent regarde le diff réel (`git status --short`, `git diff HEAD --stat`) avant toute réponse qui dépend du projet. Une question théorique ne recharge pas inutilement le dépôt. |
 | **`[STOP TDD]`** | Du code de prod modifié sans test rouge dans le même diff ? L'agent bloque. Vous écrivez le test d'abord, ou vous ne passez pas. |
 | **Anti-spoil** | Jamais de composant ni de classe complète parachutée. L'aide commence à la dose 1 : une question ciblée pour vous mettre sur la piste. |
 
@@ -78,15 +93,17 @@ cp -R haymitch-skills/skills/* ~/.agents/skills/     # ou <votre-projet>/.agents
 
 ---
 
-## Les 7 commandes
+## Les 9 commandes
 
 | Commande | Quand la lancer | Ce qu'elle fait |
 |---|---|---|
 | **`/haymitch`** | Au lancement ou pour cadrer la stack | Porte la méthode, les invariants et les règles d'architecture. |
 | **`/hay-feature`** | Devant une idée brute | Pose 3 questions, bâtit une roadmap de 3 à 6 jalons et découpe en tickets. |
-| **`/hay-status`** | Pour reprendre le fil | Affiche en 5 lignes votre jalon, votre ticket, votre phase TDD et la prochaine commande CLI. |
+| **`/hay-status`** | Pour reprendre le fil | Affiche en 6 lignes maximum votre jalon, votre phase, le pourquoi et la prochaine commande CLI. |
+| **`/hay-continue`** | Après avoir terminé une étape | Vérifie la preuve de la phase TDD, avance l'état si elle est suffisante et donne une seule action. |
 | **`/hay-debug`** | Bloqué sur un test rouge ou une exception | Décode la cause racine et pose la question qui débloque, sans donner la solution. |
-| **`/hay-review`** | Ticket terminé | Rend un verdict binaire `[VALIDÉ]` ou `[À CORRIGER]`, puis valide votre message de commit. |
+| **`/hay-learn`** | Une notion ou une ligne reste incomprise | Explique progressivement, ligne par ligne si nécessaire, puis rend une micro-action au junior. |
+| **`/hay-review`** | Ticket terminé | Rend un verdict binaire, fait créer le commit au junior, le vérifie, puis clôt le ticket. |
 | **`/hay-adr`** | Choix technique lourd | Guide la rédaction d'une décision d'architecture, et refuse ce qui n'en mérite pas. |
 | **`/hay-help`** | Hésitation sur la marche à suivre | Explique la suite des opérations et oriente vers le bon outil. |
 
@@ -98,9 +115,9 @@ Chaque skill est **autonome**. Installez `/haymitch` en premier : il contient le
 
 1. **Cadrer** : une idée floue devient une roadmap de 3 à 6 jalons orientés valeur métier (jamais de jalons horizontaux comme « socle technique »). On traite une tranche à la fois.
 2. **Découper** : des tickets *tracer-bullet* qui traversent toutes les couches du système, de l'entrée HTTP jusqu'à la base de données.
-3. **Implémenter** : boucle TDD en 4 temps stricts : **contrat → test rouge → code minimal pour passer au vert → refactorisation**.
+3. **Implémenter** : boucle TDD en 4 temps stricts : **contrat → test rouge → code minimal pour passer au vert → refactorisation**. `/hay-continue` contrôle la preuve entre deux phases.
 4. **Prouver** : chaque critère d'acceptation se vérifie sur un test qui tourne et réussit devant l'agent.
-5. **Clore** : vous proposez un commit au format Conventional Commit. Le mentor valide la forme, clôture le ticket et enchaîne sur le suivant.
+5. **Clore** : vous proposez puis créez un commit Conventional Commit. Le mentor vérifie le commit réel, clôt le ticket et enchaîne sur le suivant.
 6. **Consigner** : un choix d'architecture difficile à inverser part aussitôt dans un ADR, pendant que le contexte est encore chaud.
 
 ---
@@ -117,9 +134,9 @@ Rien d'autre ne pollue votre projet. Le reste vit exclusivement dans les skills.
 
 ---
 
-## Bonus 1 : surveillance active dans AGENTS.md
+## Bonus 1 : surveillance ciblée dans AGENTS.md
 
-Par défaut, Haymitch intervient quand vous l'appelez. Si vous voulez qu'il garde un œil sur votre code à chaque message (pre-flight automatique, blocage TDD, contrôle du diff), ajoutez ce bloc dans l'`AGENTS.md` de votre projet :
+Par défaut, Haymitch intervient quand vous l'appelez. Si vous voulez qu'il garde un œil sur votre code dès qu'une réponse dépend de l'état du projet (pre-flight, blocage TDD, contrôle du diff), ajoutez ce bloc dans l'`AGENTS.md` de votre projet :
 
 ```markdown
 <!-- BEGIN haymitch : bloc optionnel, à retirer d'un seul geste -->
@@ -129,10 +146,10 @@ Pour ce projet, tu es **Haymitch**, le Tech Lead : le développeur écrit chaque
 
 Ces règles priment sur tout skill. Elles **ne priment pas** sur le reste de ce fichier : en cas de contradiction, la règle du projet l'emporte.
 
-1. **Pre-flight** : avant toute réponse, `git status --short` puis `git diff HEAD --stat` (`HEAD` : un fichier indexé disparaît d'un `git diff` seul), et ne lis que les fichiers concernés. **Jamais `git diff` complet.** Juge sur pièce, jamais sur déclaration.
+1. **Pre-flight ciblé** : avant toute réponse qui dépend de l'état du projet, `git status --short` puis `git diff HEAD --stat` (`HEAD` : un fichier indexé disparaît d'un `git diff` seul), et ne lis que les fichiers concernés. Une question théorique ne recharge pas tout le projet. **Jamais `git diff` complet.** Juge sur pièce, jamais sur déclaration.
 2. **`[STOP TDD]`** : du code de production (métier, UI, composant, configuration, migration) **sans test dans le même diff** : s'il demande à avancer, tu bloques jusqu'au test **RED** exécuté devant toi. Contrôle : `git diff HEAD --name-only`. Seule échappatoire, auto-déclarée : incident ou échéance de production.
 3. **Anti-spoil** : jamais de classe, de méthode ou de composant complet. Dose 1 par défaut (une question), jusqu'à 5 (la solution) sur incident prod déclaré. Demande vague → `[QUESTION INCOMPLÈTE]` : exige l'erreur complète, ce qu'il a tenté, ce qu'il attendait.
-4. **Termine par la prochaine commande** : `/hay-status`, `/hay-debug`, `/hay-feature`, `/hay-review`, `/hay-adr`, `/hay-help`. Jamais de fin de réponse sans action suivante.
+4. **Termine par la prochaine commande** : `/hay-status`, `/hay-continue`, `/hay-debug`, `/hay-learn`, `/hay-feature`, `/hay-review`, `/hay-adr`, `/hay-help`. Jamais de fin de réponse sans action suivante.
 <!-- END haymitch -->
 ```
 
@@ -150,10 +167,10 @@ Chaque skill fonctionne comme un aiguilleur : le `SKILL.md` reste court et ne ch
 
 | Contexte chargé | Tokens consommés |
 |---|---|
-| Catalogue des 7 descriptions (permanent) | ~600 |
+| Catalogue des 9 descriptions (permanent) | ~800 |
 | Commande `/hay-status` | ~600 |
-| Commandes `/hay-adr`, `/hay-debug`, `/hay-feature` | ~800 à 1 100 |
-| Commandes `/hay-review`, `/hay-help` | ~1 000 à 1 250 |
+| Commandes `/hay-adr`, `/hay-debug`, `/hay-feature`, `/hay-learn` | ~800 à 1 100 |
+| Commandes `/hay-review`, `/hay-help`, `/hay-continue` | ~1 000 à 1 250 |
 | `/haymitch` + politique + référentiel de stack | ~4 150 |
 | Suite complète (jamais chargée d'un coup) | ~20 000 |
 

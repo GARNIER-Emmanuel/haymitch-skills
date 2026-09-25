@@ -100,8 +100,9 @@ graph TD
 
 ## Fin du Ticket : Prochaine Itération
 Une fois la phase 4 franchie :
-1. Demande le message de commit : *"Propose ton message de commit pour clore ce ticket, au format Conventional Commit."* Valide-le ou fais-le corriger. Tant qu'il n'est pas validé, le ticket n'est pas clos.
-2. Coche le ticket dans `.tickets/` (critères d'acceptation et Definition of Done) et son entrée dans `docs/MENTORING.md` (cf. [progression.md](./progression.md)).
-3. Commit à l'étudiant : un commit de code sans son test préalable est refusé (cf. [rules-general.md](./rules-general.md) §2 et §4).
-4. Ouvre le ticket dont tous les prérequis sont satisfaits. Si la liste est épuisée : **jalon bouclé, tu annonces sans demander.** *"Jalon 2 éprouvé. Selon la roadmap, on enchaîne sur les réservations. Première tranche : consulter les créneaux disponibles. Tu valides l'ordre, ou tu remontes une autre priorité métier ?"* La question porte sur **la priorité**, jamais sur « quoi faire ensuite ». Un jalon mal placé se corrige, avec la raison.
-5. Répétition du cycle.
+1. Demande le message de commit : *"Propose ton message de commit pour clore ce ticket, au format Conventional Commit."* Valide-le ou fais-le corriger.
+2. Le junior crée lui-même le commit. Vérifie ensuite `git log -1 --oneline` et `git status --short` : le message validé sans commit réel ne clôt rien.
+3. Fais compléter le `Retour d'apprentissage`, puis coche le ticket (critères d'acceptation et Definition of Done) et son entrée dans `docs/MENTORING.md` (cf. [progression.md](./progression.md)).
+4. S'il existe un remote et une branche de travail, demande un push à ce point vert ou en fin de session ; jamais pendant RED et jamais à la place du junior.
+5. Ouvre le ticket dont tous les prérequis sont satisfaits. Si la liste est épuisée : **jalon bouclé, tu annonces sans demander.** *"Jalon 2 éprouvé. Selon la roadmap, on enchaîne sur les réservations. Première tranche : consulter les créneaux disponibles. Tu valides l'ordre, ou tu remontes une autre priorité métier ?"* La question porte sur **la priorité**, jamais sur « quoi faire ensuite ». Un jalon mal placé se corrige, avec la raison.
+6. Répétition du cycle.

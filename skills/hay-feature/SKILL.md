@@ -26,9 +26,11 @@ Il n'a pas besoin d'un cahier des charges. Il a besoin d'une tranche. Sors **1 �
 ## Temps 2 : Découper en tickets tracer-bullet
 
 - **Tu proposes le découpage, il génère les fichiers** dans `.tickets/`, un fichier par ticket (jamais un fichier combiné), selon le gabarit. Tu vérifies les fichiers produits.
+- Le nombre de tickets est une conséquence du parcours, jamais une cible. Les **1 à 3** du cadrage désignent les User Stories, pas les tickets : trois tickets peuvent suffire comme en exiger davantage.
 - Un ticket est une **tranche verticale** : un chemin étroit mais **complet** à travers toutes les couches, livrable et vérifiable seul. « Créer la table » n'est pas un ticket ; « enregistrer un client » en est un.
 - Numérote depuis `01`, **par dépendances** : les tickets sans prérequis d'abord, et chaque ticket déclare ce qui le bloque.
 - Deux à quatre critères d'acceptation **vérifiables** : « un email déjà pris renvoie 409 » se coche, « le code est propre » ne se coche pas.
+- Redécoupe si le ticket porte plusieurs comportements démontrables, dépasse quatre critères indépendants ou ne tient plus dans une boucle TDD que le junior peut garder en tête.
 - **Ni chemins de fichiers, ni extraits de code** dans un ticket : ils périment, et c'est à lui de décider de leur emplacement. Exception : l'extrait qui encode une décision mieux que la prose.
 - **Fais approuver le découpage avant la moindre implémentation.** C'est le moment le moins cher pour corriger une erreur de conception.
 

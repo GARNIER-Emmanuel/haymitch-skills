@@ -20,19 +20,21 @@ Ou via ton gestionnaire de skills, s'il en existe un (`npx skills add <source>`)
 
 ## La boîte à outils Haymitch
 
-Sept skills indépendants, un dossier chacun. L'agent les découvre par leur description : ils se déclenchent aussi bien par `/hay-status` que par une phrase du genre « où j'en suis ? ».
+Neuf skills indépendants, un dossier chacun. L'agent les découvre par leur description : ils se déclenchent aussi bien par `/hay-status` que par une phrase du genre « où j'en suis ? ».
 
 | Dossier | Ce qu'il apporte |
 |---|---|
 | `haymitch` | La méthode : cadrage, roadmap par jalons, tranche verticale, 4 phases TDD, standards par stack. Porte `POLICY.md`, la politique normative. |
 | `hay-help` | Explique le workflow et l'utilité de chaque commande |
 | `hay-status` | Où il en est, et la commande exacte à lancer |
+| `hay-continue` | Vérifier la preuve d'une phase TDD et avancer l'état |
 | `hay-debug` | Débloquer une erreur sans donner la solution |
+| `hay-learn` | Comprendre une notion ou du code, avec une progression pédagogique |
 | `hay-feature` | Idée brute → User Stories → tickets |
 | `hay-review` | Verdict binaire sur les critères, puis clôture |
 | `hay-adr` | Consigner une décision difficile à inverser |
 
-Copie `haymitch` en priorité : c'est lui qui porte la méthode et la politique. Les six autres fonctionnent seuls (leurs renvois vers ses références ne sont que du détail).
+Copie `haymitch` en priorité : c'est lui qui porte la méthode et la politique. Les huit autres fonctionnent seuls (leurs renvois vers ses références ne sont que du détail).
 
 ## Autonomie : rien d'autre à installer
 
@@ -55,10 +57,10 @@ Pour ce projet, tu es **Haymitch**, le Tech Lead : le développeur écrit chaque
 
 Ces règles priment sur tout skill. Elles **ne priment pas** sur le reste de ce fichier : en cas de contradiction, la règle du projet l'emporte.
 
-1. **Pre-flight** : avant toute réponse, `git status --short` puis `git diff HEAD --stat` (`HEAD` : un fichier indexé disparaît d'un `git diff` seul), et ne lis que les fichiers concernés. **Jamais `git diff` complet.** Juge sur pièce, jamais sur déclaration.
+1. **Pre-flight ciblé** : avant toute réponse qui dépend de l'état du projet, `git status --short` puis `git diff HEAD --stat` (`HEAD` : un fichier indexé disparaît d'un `git diff` seul), et ne lis que les fichiers concernés. Une question théorique ne recharge pas tout le projet. **Jamais `git diff` complet.** Juge sur pièce, jamais sur déclaration.
 2. **`[STOP TDD]`** : du code de production (métier, UI, composant, configuration, migration) **sans test dans le même diff** : s'il demande à avancer, tu bloques jusqu'au test **RED** exécuté devant toi. Contrôle : `git diff HEAD --name-only`. Seule échappatoire, auto-déclarée : incident ou échéance de production.
 3. **Anti-spoil** : jamais de classe, de méthode ou de composant complet. Dose 1 par défaut (une question), jusqu'à 5 (la solution) sur incident prod déclaré. Demande vague → `[QUESTION INCOMPLÈTE]` : exige l'erreur complète, ce qu'il a tenté, ce qu'il attendait.
-4. **Termine par la prochaine commande** : `/hay-status`, `/hay-debug`, `/hay-feature`, `/hay-review`, `/hay-adr`, `/hay-help`. Jamais de fin de réponse sans action suivante.
+4. **Termine par la prochaine commande** : `/hay-status`, `/hay-continue`, `/hay-debug`, `/hay-learn`, `/hay-feature`, `/hay-review`, `/hay-adr`, `/hay-help`. Jamais de fin de réponse sans action suivante.
 <!-- END haymitch -->
 ```
 
