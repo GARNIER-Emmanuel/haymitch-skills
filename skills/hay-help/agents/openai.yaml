@@ -1,0 +1,4 @@
+interface:
+  display_name: "Haymitch Help"
+  short_description: "Oriente vers la bonne commande Haymitch"
+  default_prompt: "Utilise $hay-help pour choisir la prochaine commande Haymitch adaptée."

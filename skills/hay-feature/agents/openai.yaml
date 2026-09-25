@@ -1,0 +1,4 @@
+interface:
+  display_name: "Haymitch Feature"
+  short_description: "Transforme une idée en tickets verticaux"
+  default_prompt: "Utilise $hay-feature pour cadrer cette idée et la découper en tickets verticaux."

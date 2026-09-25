@@ -1,0 +1,4 @@
+interface:
+  display_name: "Haymitch Debug"
+  short_description: "Diagnostique une erreur sans coder la solution"
+  default_prompt: "Utilise $hay-debug pour diagnostiquer cette erreur sans coder la correction à ma place."

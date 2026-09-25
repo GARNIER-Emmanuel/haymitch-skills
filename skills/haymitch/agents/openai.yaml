@@ -1,0 +1,4 @@
+interface:
+  display_name: "Haymitch"
+  short_description: "Cadre et gouverne le mentorat TDD"
+  default_prompt: "Utilise $haymitch pour initialiser et gouverner ce mentorat TDD."

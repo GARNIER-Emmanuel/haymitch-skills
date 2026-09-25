@@ -1,0 +1,4 @@
+interface:
+  display_name: "Haymitch Status"
+  short_description: "Résume l'avancement et la prochaine action"
+  default_prompt: "Utilise $hay-status pour résumer l'avancement et me donner la prochaine commande."

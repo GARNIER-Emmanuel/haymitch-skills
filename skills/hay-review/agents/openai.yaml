@@ -1,0 +1,4 @@
+interface:
+  display_name: "Haymitch Review"
+  short_description: "Vérifie et clôt un ticket sur preuves"
+  default_prompt: "Utilise $hay-review pour vérifier ce ticket sur preuves et guider sa clôture."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Haymitch ADR"
+  short_description: "Documente une décision technique structurante"
+  default_prompt: "Utilise $hay-adr pour qualifier et documenter cette décision technique."
