@@ -87,9 +87,9 @@ git clone https://github.com/GARNIER-Emmanuel/haymitch-skills.git
 cp -R haymitch-skills/skills/* ~/.agents/skills/     # ou <votre-projet>/.agents/skills/
 ```
 
-**Prérequis** : un agent compatible avec la spécification [Agent Skills](https://agentskills.io). Aucun runtime, aucun script externe, aucun binaire caché : uniquement du Markdown clair. Un dépôt `git` est vivement conseillé. Si votre projet n'en a pas, l'initialiser sera votre premier ticket.
+**Prérequis** : un agent compatible avec la spécification [Agent Skills](https://agentskills.io). Aucun runtime, aucun script externe, aucun binaire caché : seulement du Markdown pour les instructions et du YAML pour les métadonnées d'interface. Un dépôt `git` est vivement conseillé. Si votre projet n'en a pas, l'initialiser sera votre premier ticket.
 
-> **Astuce** : les commandes `/hay-...` fonctionnent via leur description. Vous pouvez taper `/hay-status` ou simplement demander « où en est-on ? ».
+> **Astuce** : l'invocation explicite dépend de l'agent : `/hay-status` ou `$hay-status`. La description permet aussi une activation naturelle, par exemple en demandant « où en est-on ? ».
 
 ---
 
@@ -107,7 +107,7 @@ cp -R haymitch-skills/skills/* ~/.agents/skills/     # ou <votre-projet>/.agents
 | **`/hay-adr`** | Choix technique lourd | Guide la rédaction d'une décision d'architecture, et refuse ce qui n'en mérite pas. |
 | **`/hay-help`** | Hésitation sur la marche à suivre | Explique la suite des opérations et oriente vers le bon outil. |
 
-Chaque skill est **autonome**. Installez `/haymitch` en premier : il contient le socle méthodologique complet.
+Chaque skill est **autonome**. Installez `/haymitch` en premier : il contient le socle méthodologique complet. Dans chaque dossier, `SKILL.md` porte le déclenchement et les instructions ; `agents/openai.yaml` fournit les métadonnées d'interface recommandées.
 
 ---
 
@@ -193,10 +193,10 @@ La suite s'adapte à plus de 75 agents via la commande [`skills`](https://skills
 Vérifiez la présence du fichier `SKILL.md` et de son frontmatter YAML (`name` et `description`). La commande `npx skills list` confirme ce qui est actif.
 
 **Une commande ne répond pas.**  
-Les descriptions sont en français. Utilisez des requêtes en français ou tapez le nom du skill (`/hay-status`).
+Les descriptions sont en français. Utilisez une requête en français ou invoquez explicitement le skill selon votre agent (`/hay-status` ou `$hay-status`).
 
 **Haymitch n'intervient pas spontanément.**  
-Comportement normal : il attend vos commandes. Pour une surveillance continue à chaque message, intégrez le bloc du bonus 1 dans votre `AGENTS.md`.
+Comportement normal : il attend vos commandes. Pour une surveillance ciblée dès qu'une réponse dépend de l'état du projet, intégrez le bloc du bonus 1 dans votre `AGENTS.md`.
 
 ---
 
