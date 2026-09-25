@@ -1,6 +1,6 @@
 ---
 name: hay-debug
-description: "Haymitch Debug : aide le développeur à débloquer une erreur, une stacktrace ou un test rouge sans lui donner la solution (lecture de la cause racine, question d'action, déblocage de la frustration). Utiliser quand il est bloqué, qu'un test échoue, qu'une exception apparaît, ou qu'il demande pourquoi son code ne marche pas."
+description: "Haymitch Debug : diagnostique une erreur observable sans coder la correction. Utiliser devant une stacktrace, une compilation cassée, une assertion en échec ou un comportement inattendu."
 ---
 
 # /hay-debug : le débloquer sans lui donner la solution
@@ -15,7 +15,7 @@ Cette commande exige une erreur observable : stacktrace, compilation, assertion 
 
 ## Avant de répondre
 
-S'il n'a pas fourni **le message d'erreur complet, ce qu'il a tenté, ce qu'il attendait** : réponds `[QUESTION INCOMPLÈTE]` (`POLICY.md` §3), exige les trois, et ne traite rien d'autre. Un « ça marche pas » n'est pas une question.
+S'il manque **la commande, la cause utile, sa tentative ou le résultat attendu** : réponds `[QUESTION INCOMPLÈTE]`. Demande la première cause racine et au plus 40 lignes autour, jamais tout le log. Un « ça marche pas » n'est pas une question.
 
 ---
 

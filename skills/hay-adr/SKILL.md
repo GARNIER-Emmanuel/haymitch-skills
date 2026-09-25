@@ -1,6 +1,6 @@
 ---
 name: hay-adr
-description: "Haymitch ADR : guide la rédaction d'un ADR pour une décision technique difficile à inverser, en vérifiant d'abord si elle le mérite vraiment. Utiliser quand le développeur a choisi une technologie, un modèle de données ou un découpage, ou demande de consigner une décision d'architecture."
+description: "Haymitch ADR : qualifie puis consigne une décision technique difficile à inverser. Utiliser pour challenger ou documenter un choix d'architecture, de technologie ou de modèle de données."
 ---
 
 # /hay-adr : consigner une décision et son pourquoi

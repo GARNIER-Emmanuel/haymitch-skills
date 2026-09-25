@@ -11,6 +11,14 @@ Chemin par défaut : `docs/MENTORING.md`, à la racine du projet.
 ```markdown
 # Mentorat : <nom du projet>
 
+## État courant
+- **Jalon** : <N/M — capacité>
+- **Ticket** : `.tickets/NN-nom-court.md`
+- **Phase TDD** : <1 à 4 — nom>
+- **Signal attendu** : <preuve qui valide la phase>
+- **Dernière preuve** : <résultat ciblé, une ligne>
+- **Prochaine commande** : </hay-... ou commande CLI>
+
 ## Intention métier & vision
 <le problème résolu, dans les mots de l'étudiant, et pour qui (2 à 4 phrases)>
 
@@ -21,11 +29,6 @@ numéros de tickets, jamais leur contenu.>
 - [x] **J1 : <capacité>** (walking skeleton), tickets 01 → 02
 - [ ] **J2 : <capacité>** 👈 en cours, tickets 03 → 05
 - [ ] **J3 : <capacité>** (à découper)
-
-## Ticket en cours
-- **Fichier** : `.tickets/NN-nom-court.md`
-- **Phase TDD** : <1 à 4> (<nom de la phase>)
-- **Signal attendu** : <ce qu'il doit montrer pour valider cette phase>
 
 ## Phases TDD du ticket en cours
 - [ ] 1. Contrat (DTO Record + Validation)
@@ -45,14 +48,14 @@ numéros de tickets, jamais leur contenu.>
 
 ## Règles de mise à jour
 
-- **En début de session** : lis le fichier avant toute question. Un cadrage déjà consigné ne se redemande pas, et le ticket en cours te dit où reprendre.
+- **En début de session** : lis seulement le bloc `État courant`. Ouvre ensuite le ticket ; ne lis la roadmap ou les décisions que si la demande l'exige.
 - **S'il est absent** : premier échange. Tu crées le fichier, tu remplis l'intention et la vision depuis les 3 questions de cadrage, tu proposes la roadmap (cf. [vertical-slice-workflow.md](./vertical-slice-workflow.md) Phase 0) ; tu lui fais générer les tickets dans `.tickets/` (cf. [ticket-template.md](./ticket-template.md)), puis tu vérifies les fichiers produits. C'est ton fichier à toi : lui ne rédige que les tickets.
 - **À chaque clôture de jalon** : coche le jalon, déplace le marqueur « en cours » sur le suivant, puis découpe son premier ticket.
 - **La roadmap se révise** : un jalon mal placé se corrige, et tu dis pourquoi. La réviser n'est pas un échec, c'est le travail.
 - **Ce qui ne va jamais dans la roadmap** : le contenu des tickets, les dates, les estimations et le raisonnement (un séquençage difficile à inverser est un ADR, cf. [ADR-FORMAT.md](./ADR-FORMAT.md)).
 - **Compatibilité** : un `MENTORING.md` existant sans section roadmap ne bloque rien, et ne justifie pas de reposer le cadrage : propose de la compléter à la prochaine clôture de jalon.
-- **À chaque phase franchie** : coche-la, avance la phase courante, et réécris le **signal attendu** pour qu'il porte sur la phase suivante. La phase 2 ne se coche que si le RED a été montré : un test écrit après le code ne la valide pas.
-- **À chaque ticket terminé** : coche son entrée dans la liste, puis ouvre le ticket dont tous les prérequis sont satisfaits.
+- **À chaque phase franchie** : coche-la, avance `État courant`, renseigne la dernière preuve en une ligne et réécris le signal attendu. La phase 2 ne se coche que si le RED a été montré.
+- **À chaque ticket terminé** : coche son entrée, ouvre le ticket débloqué, actualise `État courant`, puis recommande un nouveau fil avec `/hay-status`. L'état écrit remplace le récapitulatif de conversation.
 - **À chaque décision** : ajoute une ligne datée. Si elle franchit les trois conditions de [ADR-FORMAT.md](./ADR-FORMAT.md), c'est un ADR : écris-le dans `docs/adr/` et fais pointer la ligne dessus, plutôt que d'y recopier le raisonnement.
 
 ---

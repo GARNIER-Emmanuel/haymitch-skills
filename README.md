@@ -117,7 +117,7 @@ Chaque skill est **autonome**. Installez `/haymitch` en premier : il contient le
 2. **Découper** : des tickets *tracer-bullet* qui traversent toutes les couches du système, de l'entrée HTTP jusqu'à la base de données.
 3. **Implémenter** : boucle TDD en 4 temps stricts : **contrat → test rouge → code minimal pour passer au vert → refactorisation**. `/hay-continue` contrôle la preuve entre deux phases.
 4. **Prouver** : chaque critère d'acceptation se vérifie sur un test qui tourne et réussit devant l'agent.
-5. **Clore** : vous proposez puis créez un commit Conventional Commit. Le mentor vérifie le commit réel, clôt le ticket et enchaîne sur le suivant.
+5. **Clore** : vous proposez puis créez un commit Conventional Commit. Le mentor vérifie le commit, écrit l'état de reprise, puis recommande un nouveau fil avec `/hay-status`.
 6. **Consigner** : un choix d'architecture difficile à inverser part aussitôt dans un ADR, pendant que le contexte est encore chaud.
 
 ---
@@ -126,7 +126,7 @@ Chaque skill est **autonome**. Installez `/haymitch` en premier : il contient le
 
 | Emplacement | Qui l'écrit | Ce qu'on y trouve |
 |---|---|---|
-| `docs/MENTORING.md` | l'agent | La vision, la roadmap, l'état d'avancement et le journal des décisions. |
+| `docs/MENTORING.md` | l'agent | Un bloc `État courant` compact, la vision, la roadmap et l'index des décisions. |
 | `.tickets/NN-nom.md` | vous | Un fichier par ticket, découpé depuis le gabarit et coché sur preuves. |
 | `docs/adr/NNNN-nom.md` | vous | Les choix structurants avec leurs alternatives écartées et leurs conséquences. |
 
@@ -142,14 +142,12 @@ Par défaut, Haymitch intervient quand vous l'appelez. Si vous voulez qu'il gard
 <!-- BEGIN haymitch : bloc optionnel, à retirer d'un seul geste -->
 ## Mentorat Haymitch (skill `haymitch`)
 
-Pour ce projet, tu es **Haymitch**, le Tech Lead : le développeur écrit chaque ligne, tu cadres, tu découpes, tu vérifies. Politique complète et normative : `POLICY.md` du skill `haymitch`.
+Tu es **Haymitch** : le junior code, tu cadres et vérifies. `POLICY.md` du skill fait foi ; les règles du projet restent prioritaires.
 
-Ces règles priment sur tout skill. Elles **ne priment pas** sur le reste de ce fichier : en cas de contradiction, la règle du projet l'emporte.
-
-1. **Pre-flight ciblé** : avant toute réponse qui dépend de l'état du projet, `git status --short` puis `git diff HEAD --stat` (`HEAD` : un fichier indexé disparaît d'un `git diff` seul), et ne lis que les fichiers concernés. Une question théorique ne recharge pas tout le projet. **Jamais `git diff` complet.** Juge sur pièce, jamais sur déclaration.
-2. **`[STOP TDD]`** : du code de production (métier, UI, composant, configuration, migration) **sans test dans le même diff** : s'il demande à avancer, tu bloques jusqu'au test **RED** exécuté devant toi. Contrôle : `git diff HEAD --name-only`. Seule échappatoire, auto-déclarée : incident ou échéance de production.
-3. **Anti-spoil** : jamais de classe, de méthode ou de composant complet. Dose 1 par défaut (une question), jusqu'à 5 (la solution) sur incident prod déclaré. Demande vague → `[QUESTION INCOMPLÈTE]` : exige l'erreur complète, ce qu'il a tenté, ce qu'il attendait.
-4. **Termine par la prochaine commande** : `/hay-status`, `/hay-continue`, `/hay-debug`, `/hay-learn`, `/hay-feature`, `/hay-review`, `/hay-adr`, `/hay-help`. Jamais de fin de réponse sans action suivante.
+1. Réponse dépendante du projet : `git status --short`, `git diff HEAD --stat`, bloc `État courant`, ticket et fichiers utiles. Jamais de diff complet.
+2. Production sans test associé : `[STOP TDD]` jusqu'au RED ciblé montré. Exception uniquement pour un incident ou délai prod déclaré.
+3. Anti-spoil : dose 1 par défaut. Question vague : objectif, tentative, commande, extrait causal ≤ 40 lignes, résultat attendu.
+4. Termine par une seule commande : `/hay-status`, `/hay-continue`, `/hay-debug`, `/hay-learn`, `/hay-feature`, `/hay-review`, `/hay-adr` ou `/hay-help`.
 <!-- END haymitch -->
 ```
 
@@ -163,18 +161,18 @@ Votre agent supporte la restriction de droits ? Retirez-lui la permission de mod
 
 ## Frugalité et consommation de tokens
 
-Chaque skill fonctionne comme un aiguilleur : le `SKILL.md` reste court et ne charge ses fichiers de références que si la situation l'exige. Ordres de grandeur mesurés :
+Chaque skill fonctionne comme un aiguilleur : le `SKILL.md` reste court et ne charge ses fichiers de références que si la situation l'exige. Ordres de grandeur indicatifs du texte brut (le tokenizer de l'agent peut varier) :
 
 | Contexte chargé | Tokens consommés |
 |---|---|
-| Catalogue des 9 descriptions (permanent) | ~800 |
+| Catalogue des 9 descriptions (permanent) | ~400 |
 | Commande `/hay-status` | ~600 |
-| Commandes `/hay-adr`, `/hay-debug`, `/hay-feature`, `/hay-learn` | ~800 à 1 100 |
-| Commandes `/hay-review`, `/hay-help`, `/hay-continue` | ~1 000 à 1 250 |
-| `/haymitch` + politique + référentiel de stack | ~4 150 |
-| Suite complète (jamais chargée d'un coup) | ~20 000 |
+| Commandes `/hay-adr`, `/hay-debug`, `/hay-learn` | ~650 à 850 |
+| Commandes `/hay-feature`, `/hay-continue`, `/hay-review` | ~850 à 1 100 |
+| Commande `/hay-help` | ~400 |
+| `/haymitch` seul | ~1 400 |
 
-Deux gardes-fous protègent votre fenêtre de contexte : **aucun `git diff` brut intégral** (un gros diff noie les consignes) et **chargement ciblé des documentations**.
+Quatre gardes-fous protègent le contexte : aucun diff intégral, extraits de logs limités à 40 lignes, références chargées à la demande et nouveau fil après chaque ticket clôturé.
 
 ---
 

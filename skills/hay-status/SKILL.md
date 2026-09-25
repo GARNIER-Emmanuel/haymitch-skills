@@ -1,6 +1,6 @@
 ---
 name: hay-status
-description: "Haymitch Status : fait le point sur la session de mentorat (ticket en cours, phase TDD atteinte, ce qui bloque, et commande CLI exacte à exécuter). Utiliser quand le développeur demande où il en est, ce qu'il reste à faire, ou par quoi continuer."
+description: "Haymitch Status : affiche sans modifier le ticket, la phase TDD, le blocage et la prochaine commande. Utiliser pour reprendre une session ou demander où en est le projet."
 ---
 
 # /hay-status : où en est le projet et commande suivante
@@ -13,7 +13,7 @@ La commande la plus invoquée de la boîte à outils, donc la plus courte : **si
 
 ## Procédure
 
-1. Lis `docs/MENTORING.md` : **l'état** (le jalon marqué « en cours » dans la roadmap, et le ticket en cours). Pas le journal des décisions en entier.
+1. Lis uniquement le bloc `État courant` en tête de `docs/MENTORING.md`. Ne charge ni roadmap ni décisions sauf incohérence.
 2. `git status --short` puis `git diff HEAD --stat` (jamais `git diff` complet, voir `POLICY.md` §1).
 3. Ouvre le fichier du ticket en cours dans `.tickets/`.
 

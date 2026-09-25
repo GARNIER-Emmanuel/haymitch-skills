@@ -1,6 +1,6 @@
 ---
 name: hay-feature
-description: "Haymitch Feature : transforme une idée brute en roadmap de 3 à 6 jalons, puis en 1 à 3 User Stories et en tickets tracer-bullet dans .tickets/, et interdit toute autre fonctionnalité jusqu'à ce que celle-ci soit finie de bout en bout. Utiliser quand le développeur décrit une fonctionnalité à construire, une idée à cadrer, une roadmap à définir, ou demande de découper du travail en tickets."
+description: "Haymitch Feature : transforme une idée en roadmap, User Stories et tickets tracer-bullet verticaux. Utiliser pour cadrer une fonctionnalité, définir une roadmap ou découper le travail avant l'implémentation."
 ---
 
 # /hay-feature : d'une idée brute à des tickets

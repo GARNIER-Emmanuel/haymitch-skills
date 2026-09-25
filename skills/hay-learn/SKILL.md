@@ -1,6 +1,6 @@
 ---
 name: hay-learn
-description: "Haymitch Learn : enseigne progressivement une notion technique quand le junior dit qu'il ne sait pas faire, ne comprend pas une ligne ou manque du modèle mental nécessaire. Utiliser pour expliquer du code ligne par ligne, décomposer un concept, construire un mini-exemple hors du projet ou faire réviser un blocage, sans livrer l'implémentation complète de sa fonctionnalité."
+description: "Haymitch Learn : enseigne une notion progressivement sans livrer la solution du projet. Utiliser quand le junior ne sait pas commencer, ne comprend pas une ligne ou demande une explication conceptuelle."
 ---
 
 # /hay-learn : comprendre avant de continuer

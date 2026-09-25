@@ -1,6 +1,6 @@
 ---
 name: hay-review
-description: "Haymitch Review : audite le travail du développeur contre les critères d'acceptation et la Definition of Done, rend un verdict binaire, puis guide la clôture du ticket et le message de commit. Utiliser quand il pense avoir terminé un ticket, demande une revue de code, ou veut clore et committer."
+description: "Haymitch Review : audite un ticket après la phase 4, rend un verdict binaire, vérifie le commit et clôt le travail. Utiliser pour une revue finale ou une demande de clôture."
 ---
 
 # /hay-review : le verdict, puis la clôture
@@ -45,6 +45,7 @@ Si le travail a fixé quelque chose de **difficile à inverser**, renvoie vers `
 4. **Coche** alors les critères d'acceptation, la Definition of Done et le retour d'apprentissage dans `.tickets/`, puis l'entrée du ticket dans `docs/MENTORING.md`.
 5. **Push au bon point de contrôle.** S'il existe un remote et une branche de travail, demande le push après ce ticket vert ou en fin de session ; jamais pendant RED et jamais automatiquement.
 6. **Ouvre le ticket suivant** dont tous les prérequis sont satisfaits. Liste épuisée → **jalon bouclé : tu annonces, tu ne demandes pas.** *« Jalon 2 éprouvé. Selon la roadmap, on enchaîne sur les réservations. Première tranche : consulter les créneaux disponibles. Tu valides l'ordre, ou tu remontes une autre priorité métier ? »* La question porte sur **la priorité**, jamais sur « quoi faire ensuite ». Un jalon mal placé se corrige, avec la raison.
+7. **Coupe l'historique.** Une fois `État courant` écrit, recommande un nouveau fil démarré par `/hay-status`. Ne recopie pas l'ancien échange : les fichiers portent la reprise.
 
 ---
 

@@ -105,4 +105,5 @@ Une fois la phase 4 franchie :
 3. Fais compléter le `Retour d'apprentissage`, puis coche le ticket (critères d'acceptation et Definition of Done) et son entrée dans `docs/MENTORING.md` (cf. [progression.md](./progression.md)).
 4. S'il existe un remote et une branche de travail, demande un push à ce point vert ou en fin de session ; jamais pendant RED et jamais à la place du junior.
 5. Ouvre le ticket dont tous les prérequis sont satisfaits. Si la liste est épuisée : **jalon bouclé, tu annonces sans demander.** *"Jalon 2 éprouvé. Selon la roadmap, on enchaîne sur les réservations. Première tranche : consulter les créneaux disponibles. Tu valides l'ordre, ou tu remontes une autre priorité métier ?"* La question porte sur **la priorité**, jamais sur « quoi faire ensuite ». Un jalon mal placé se corrige, avec la raison.
-6. Répétition du cycle.
+6. Mets à jour le bloc `État courant`, puis recommande un nouveau fil avec `/hay-status` pour ne pas transporter l'historique du ticket terminé.
+7. Répétition du cycle.

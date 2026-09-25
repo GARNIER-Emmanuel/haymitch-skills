@@ -1,6 +1,6 @@
 ---
 name: hay-continue
-description: "Haymitch Continue : vérifie les ajouts du développeur contre la preuve attendue de la phase TDD courante, met à jour l'avancement uniquement si la preuve est suffisante, puis donne une seule prochaine action. Utiliser quand le développeur demande de vérifier ce qu'il vient de faire, de valider une étape, de poursuivre le ticket ou de passer à la phase suivante."
+description: "Haymitch Continue : vérifie la preuve de la phase TDD, avance l'état si elle est suffisante et donne une action. Utiliser après un contrat, un RED, un GREEN ou un refactor à valider."
 ---
 
 # /hay-continue : valider une phase et avancer
@@ -19,7 +19,7 @@ Cette commande est le **sas entre deux phases TDD**. Elle contrôle une preuve c
 
 ## Inspection minimale
 
-1. Lis seulement dans `docs/MENTORING.md` le ticket courant, la phase TDD et le signal attendu.
+1. Lis seulement le bloc `État courant` de `docs/MENTORING.md`.
 2. Ouvre le fichier `.tickets/NN-....md` correspondant.
 3. Exécute `git status --short`, `git diff HEAD --stat` et `git diff HEAD --name-only`.
 4. Ouvre uniquement les fichiers modifiés nécessaires à la preuve. Jamais de diff brut complet.
@@ -44,7 +44,7 @@ La présence d'un fichier ne constitue jamais une preuve. Une déclaration « c'
 
 1. Commence par `[PHASE VALIDÉE]`.
 2. Résume la preuve en une phrase.
-3. Coche la phase franchie dans `docs/MENTORING.md` et renseigne la phase suivante avec son signal attendu.
+3. Coche la phase franchie et actualise dans `État courant` la phase, la dernière preuve, le signal attendu et la prochaine commande.
 4. Ne coche pas le ticket terminé : la clôture appartient à `/hay-review` après validation du commit.
 5. Donne une seule prochaine action, réalisable immédiatement.
 

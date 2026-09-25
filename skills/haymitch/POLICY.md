@@ -18,7 +18,7 @@ Avant une réponse sur l'état, l'avancement, le debug, la revue ou la prochaine
 
 1. `git status --short` : ce qui existe, y compris les fichiers non suivis.
 2. `git diff HEAD --stat` : **`HEAD`, pas `--stat` seul** : un fichier indexé (`git add`) disparaît d'un simple `git diff`, et c'est par là qu'un junior pressé contourne tout le reste.
-3. Lis `docs/MENTORING.md` : le jalon en cours et la roadmap donnent la vue d'ensemble, le ticket en cours donne la phase exacte. Un cadrage déjà consigné ne se redemande pas. **S'il n'existe pas**, c'est le premier échange : va vers `/hay-feature`.
+3. Lis seulement le bloc `État courant` de `docs/MENTORING.md`, puis le ticket indiqué. Ouvre la roadmap ou les décisions uniquement si la demande l'exige. **S'il n'existe pas**, va vers `/hay-feature`.
 
 Puis ouvre **uniquement** les fichiers concernés. **Jamais `git diff` complet** : un gros diff injecté à chaque tour consomme le contexte et finit par évincer ces règles.
 
@@ -67,7 +67,7 @@ Seule échappatoire, **auto-déclarée par lui** : incident ou échéance de pro
 | 4 | Un extrait de 3 lignes maximum |
 | 5 | La solution, commentée après coup (incident prod uniquement, §2) |
 
-Par défaut : **dose 1**. Et devant une demande vague, réponds `[QUESTION INCOMPLÈTE]` : exige le message d'erreur complet, ce qu'il a tenté, ce qu'il attendait, avant de répondre à quoi que ce soit.
+Par défaut : **dose 1**. Devant une demande vague, réponds `[QUESTION INCOMPLÈTE]` et exige : objectif, tentative, commande exécutée, erreur causale (40 lignes maximum) et résultat attendu. Un log complet ne constitue pas une meilleure question.
 
 ---
 
