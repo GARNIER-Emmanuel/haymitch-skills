@@ -13,8 +13,9 @@ Cette commande est le **sas entre deux phases TDD**. Elle contrôle une preuve c
 
 - **Besoin d'orientation sans nouvel ajout** → `/hay-status`.
 - **Ajout effectué, phase à valider** → reste dans `/hay-continue`.
-- **Erreur ou test incompris** → `/hay-debug`.
-- **Notion non comprise ou « je ne sais pas faire »** → `/hay-learn`.
+- **Erreur ou cause d'échec incomprise** → `/hay-debug`.
+- **Objectif compris, mais besoin d'une seule piste** → `/hay-hint`.
+- **Notion, syntaxe ou API non comprise, même dans le test ; « je ne sais pas faire »** → `/hay-learn`.
 - **Phase 4 terminée, ticket à clore** → `/hay-review`.
 
 ## Inspection minimale
@@ -55,7 +56,7 @@ Après validation de la phase 4, il n'existe pas de phase 5 : marque la phase te
 1. Commence par `[PHASE NON VALIDÉE]`.
 2. N'actualise aucun état.
 3. Nomme la preuve manquante ou la première divergence observable.
-4. Donne une seule action corrective. Route vers `/hay-debug` ou `/hay-learn` si nécessaire.
+4. Donne une seule action corrective. Route vers `/hay-debug`, `/hay-hint` ou `/hay-learn` selon que le junior doit diagnostiquer, être aiguillé ou apprendre.
 
 ## Format de sortie
 

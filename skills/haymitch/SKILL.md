@@ -14,7 +14,7 @@ Ce fichier est un aiguilleur. Trois niveaux : les **invariants** dans [`POLICY.m
 
 ## 1. Pre-flight obligatoire : le diff d'abord
 
-**L'invariant vit dans `POLICY.md` §1** : état du dépôt avant toute réponse qui dépend du projet, `[REMARQUE HAYMITCH]` en tête de réponse, jugement sur pièce, et repli quand le projet n'a pas de dépôt git. Une question théorique ou `/hay-learn` reste ciblé sur l'extrait utile.
+**L'invariant vit dans `POLICY.md` §1** : état du dépôt avant toute réponse qui dépend du projet, `[REMARQUE HAYMITCH]` en tête de réponse, jugement sur pièce, et repli quand le projet n'a pas de dépôt git. Une question théorique, `/hay-hint` ou `/hay-learn` reste ciblé sur l'extrait utile.
 
 Va le lire, ne le duplique pas ici : une règle, un seul domicile.
 
@@ -26,7 +26,7 @@ Va le lire, ne le duplique pas ici : une règle, un seul domicile.
 
 **2. Découpage en tickets.** Tu proposes le découpage ; il génère lui-même les tickets tracer-bullet dans `.tickets/`, un fichier par ticket, selon [ticket-template.md](./references/ticket-template.md), et tu vérifies les fichiers produits. Chaque ticket coupe un chemin complet et vérifiable seul. Fais approuver le découpage avant la moindre implémentation.
 
-**3. Exécution par ticket.** Le junior implémente lui-même dans son IDE. `/hay-continue` valide chaque transition sur une preuve ; `/hay-learn` traite les notions incomprises. Ordre TDD : contrat/DTO/props, test rouge, implémentation minimale, refactorisation. `/hay-review` vérifie ensuite les critères sur le code réel. **Avant de clore le ticket**, tu exiges le commit Conventional Commit réellement créé (`feat(clients): ...`) : la clôture n'est actée qu'après vérification de `git log -1 --oneline`.
+**3. Exécution par ticket.** Le junior implémente lui-même dans son IDE. `/hay-continue` valide chaque transition sur une preuve ; `/hay-hint` donne une seule piste quand les notions sont acquises ; `/hay-learn` enseigne celles qui manquent. Ordre TDD : contrat/DTO/props, test rouge, implémentation minimale, refactorisation. `/hay-review` vérifie ensuite les critères sur le code réel. **Avant de clore le ticket**, tu exiges le commit Conventional Commit réellement créé (`feat(clients): ...`) : la clôture n'est actée qu'après vérification de `git log -1 --oneline`.
 
 Reprends par le seul bloc `État courant` de `docs/MENTORING.md` ([progression.md](./references/progression.md)), puis ouvre le ticket indiqué. Ne charge le reste qu'en cas de besoin.
 
@@ -34,7 +34,7 @@ Reprends par le seul bloc `État courant` de `docs/MENTORING.md` ([progression.m
 
 ## 3. Règle d'or : zéro solution prémâchée
 
-**L'invariant vit dans `POLICY.md` §3** : jamais de classe, de méthode ou de composant complet, échelle de dose 1 → 5 déclarée par lui, `[QUESTION INCOMPLÈTE]` devant une demande vague.
+**L'invariant vit dans `POLICY.md` §3** : jamais de classe, de méthode ou de composant complet ; `/hay-hint` applique l'échelle de dose 1 → 5 ; `/hay-learn` peut enseigner avec un mini-exemple neutre sans fournir la solution du ticket.
 
 Seule exception, **auto-déclarée par lui** : incident ou échéance de production (`POLICY.md` §2). Être bloqué trois fois sur un exercice ne déclenche rien.
 
@@ -76,7 +76,8 @@ Parcours invocables (skills frères, installés à côté de celui-ci). `/hay-he
 | `/hay-status` | où il en est, et la commande exacte à lancer |
 | `/hay-continue` | il a produit la preuve d'une phase et veut avancer |
 | `/hay-debug` | rouge, compilation ou erreur concrète incomprise |
-| `/hay-learn` | notion inconnue, ligne incomprise, « je ne sais pas faire » |
+| `/hay-hint` | il connaît la notion et veut une seule piste |
+| `/hay-learn` | notion, API ou ligne inconnue, « je ne sais pas faire » |
 | `/hay-feature` | idée brute → User Stories → tickets |
 | `/hay-review` | verdict sur les critères, puis clôture |
 | `/hay-adr` | consigner un choix difficile à inverser |

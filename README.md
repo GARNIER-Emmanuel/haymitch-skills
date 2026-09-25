@@ -4,13 +4,31 @@
 
 Un assistant IA classique vous pond trois cents lignes de code d'un coup. Le résultat tourne, mais vous n'avez rien appris. Vous ne savez pas pourquoi ce choix de transaction s'impose, ni pourquoi ce test a échoué.
 
-Haymitch renverse la table : vous écrivez chaque ligne dans votre IDE, l'agent prend le rôle du Tech Lead. Il cadre le besoin, découpe les tranches de code, audite vos diffs et refuse catégoriquement de coder à votre place.
+Haymitch renverse la table : vous écrivez chaque ligne de votre ticket dans votre IDE, l'agent prend le rôle du Tech Lead. Il cadre le besoin, découpe les tranches de code, audite vos diffs et refuse de livrer l'implémentation à votre place. En revanche, il doit réellement enseigner une notion manquante : l'anti-spoil protège la solution du projet, pas l'accès au savoir.
 
 Stacks supportées : Java 21 & Spring Boot 3+, Angular 17+, React 18+. TDD rigoureux, du premier cadrage au commit validé.
 
 [![Licence : MIT](https://img.shields.io/badge/licence-MIT-green.svg)](LICENSE)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-compatible-4B5563.svg)](https://agentskills.io)
-[![Skills](https://img.shields.io/badge/skills-9-blue.svg)](#les-9-commandes)
+[![Skills](https://img.shields.io/badge/skills-10-blue.svg)](#les-10-commandes)
+
+---
+
+## Deux niveaux d'aide, deux contrats
+
+Une simple piste et un apprentissage ne répondent pas au même besoin :
+
+| Votre situation | Commande | Contrat de l'agent |
+|---|---|---|
+| Vous connaissez déjà les notions, vous avez tenté quelque chose et cherchez seulement où regarder | `/hay-hint` | Donne **un seul indice**, à la dose choisie, puis vous rend la main. |
+| Vous ne connaissez pas une notion, une API, une annotation ou une ligne de code | `/hay-learn` | Définit les prérequis, explique le modèle mental, montre un exemple neutre puis vérifie votre compréhension. |
+
+Exemples de routage :
+
+- « Je comprends les spies, mais mon service reste à zéro appel : donne-moi une piste » → `/hay-hint`.
+- « Je ne sais pas ce que font `toHaveBeenCalledWith` ou `fixture.nativeElement.querySelector` » → `/hay-learn`.
+
+Une erreur observable dont la cause reste inconnue relève toujours de `/hay-debug`. Une phase accompagnée de sa preuve relève de `/hay-continue`.
 
 ---
 
@@ -39,9 +57,10 @@ Haymitch  [STOP TDD] : ClientController.java modifié, aucun test dans le diff.
 
 Vous      /hay-learn je ne comprends pas ce que mon test rouge doit vérifier
 
-Haymitch  Le RED doit échouer parce que le comportement métier manque, pas parce
-          que le test est cassé. Si POST /clients n'existe pas encore, quel statut
-          ton test doit-il observer maintenant, et lequel attend-il à la fin ?
+Haymitch  Cible : distinguer l'observation actuelle du comportement attendu.
+          Comprendre : une assertion compare ce que le système renvoie maintenant
+          au contrat final. Un 404 prouve que la route manque ; un 201 est l'attente.
+          À toi : dans ton assertion, quelle valeur est observée et laquelle est attendue ?
 
 Vous      [écrit ClientApiTest, l'exécute et montre : attendu 201, obtenu 404]
           /hay-continue
@@ -61,7 +80,7 @@ Haymitch  [PHASE VALIDÉE] Phase 2 — RED
 |---|---|
 | **Pre-flight ciblé** | L'agent regarde le diff réel (`git status --short`, `git diff HEAD --stat`) avant toute réponse qui dépend du projet. Une question théorique ne recharge pas inutilement le dépôt. |
 | **`[STOP TDD]`** | Du code de prod modifié sans test rouge dans le même diff ? L'agent bloque. Vous écrivez le test d'abord, ou vous ne passez pas. |
-| **Anti-spoil** | Jamais de composant ni de classe complète parachutée. L'aide commence à la dose 1 : une question ciblée pour vous mettre sur la piste. |
+| **Anti-spoil** | Jamais de composant ni de classe complète parachutée. `/hay-hint` commence à la dose 1 ; `/hay-learn` explique vraiment la notion avec un exemple neutre. |
 
 Seule exception acceptée : un incident de production ou une urgence critique que vous déclarez vous-même.
 
@@ -80,6 +99,10 @@ npx skills add GARNIER-Emmanuel/haymitch-skills -g
 npx skills add GARNIER-Emmanuel/haymitch-skills --list
 ```
 
+### Mettre à jour une installation existante
+
+La mise à jour du dépôt source ne remplace pas automatiquement les copies déjà présentes dans `<votre-projet>/.agents/skills/`, `~/.agents/skills/` ou `.claude/skills/`. Réexécutez la commande d'installation dans la même portée que précédemment, vérifiez que `hay-hint` apparaît dans `npx skills list`, puis rechargez votre agent ou ouvrez une nouvelle session.
+
 Le CLI détecte automatiquement vos outils (`.agents/skills/`, `.claude/skills/`, etc.). Si vous préférez cloner à la main :
 
 ```bash
@@ -93,7 +116,7 @@ cp -R haymitch-skills/skills/* ~/.agents/skills/     # ou <votre-projet>/.agents
 
 ---
 
-## Les 9 commandes
+## Les 10 commandes
 
 | Commande | Quand la lancer | Ce qu'elle fait |
 |---|---|---|
@@ -102,7 +125,8 @@ cp -R haymitch-skills/skills/* ~/.agents/skills/     # ou <votre-projet>/.agents
 | **`/hay-status`** | Pour reprendre le fil | Affiche en 6 lignes maximum votre jalon, votre phase, le pourquoi et la prochaine commande CLI. |
 | **`/hay-continue`** | Après avoir terminé une étape | Vérifie la preuve de la phase TDD, avance l'état si elle est suffisante et donne une seule action. |
 | **`/hay-debug`** | Bloqué sur un test rouge ou une exception | Décode la cause racine et pose la question qui débloque, sans donner la solution. |
-| **`/hay-learn`** | Une notion ou une ligne reste incomprise | Explique progressivement, ligne par ligne si nécessaire, puis rend une micro-action au junior. |
+| **`/hay-hint`** | Les notions sont connues, mais la prochaine piste manque | Donne un seul indice à la dose choisie, puis rend immédiatement la main. |
+| **`/hay-learn`** | Une notion, une API ou une ligne reste inconnue | Enseigne avec un modèle mental, un exemple neutre et une vérification de compréhension. |
 | **`/hay-review`** | Ticket terminé | Rend un verdict binaire, fait créer le commit au junior, le vérifie, puis clôt le ticket. |
 | **`/hay-adr`** | Choix technique lourd | Guide la rédaction d'une décision d'architecture, et refuse ce qui n'en mérite pas. |
 | **`/hay-help`** | Hésitation sur la marche à suivre | Explique la suite des opérations et oriente vers le bon outil. |
@@ -115,7 +139,7 @@ Chaque skill est **autonome**. Installez `/haymitch` en premier : il contient le
 
 1. **Cadrer** : une idée floue devient une roadmap de 3 à 6 jalons orientés valeur métier (jamais de jalons horizontaux comme « socle technique »). On traite une tranche à la fois.
 2. **Découper** : des tickets *tracer-bullet* qui traversent toutes les couches du système, de l'entrée HTTP jusqu'à la base de données.
-3. **Implémenter** : boucle TDD en 4 temps stricts : **contrat → test rouge → code minimal pour passer au vert → refactorisation**. `/hay-continue` contrôle la preuve entre deux phases.
+3. **Implémenter** : boucle TDD en 4 temps stricts : **contrat → test rouge → code minimal pour passer au vert → refactorisation**. `/hay-continue` contrôle la preuve entre deux phases ; `/hay-hint` donne une piste et `/hay-learn` enseigne une notion manquante.
 4. **Prouver** : chaque critère d'acceptation se vérifie sur un test qui tourne et réussit devant l'agent.
 5. **Clore** : vous proposez puis créez un commit Conventional Commit. Le mentor vérifie le commit, écrit l'état de reprise, puis recommande un nouveau fil avec `/hay-status`.
 6. **Consigner** : un choix d'architecture difficile à inverser part aussitôt dans un ADR, pendant que le contexte est encore chaud.
@@ -146,8 +170,8 @@ Tu es **Haymitch** : le junior code, tu cadres et vérifies. `POLICY.md` du skil
 
 1. Réponse dépendante du projet : `git status --short`, `git diff HEAD --stat`, bloc `État courant`, ticket et fichiers utiles. Jamais de diff complet.
 2. Production sans test associé : `[STOP TDD]` jusqu'au RED ciblé montré. Exception uniquement pour un incident ou délai prod déclaré.
-3. Anti-spoil : dose 1 par défaut. Question vague : objectif, tentative, commande, extrait causal ≤ 40 lignes, résultat attendu.
-4. Termine par une seule commande : `/hay-status`, `/hay-continue`, `/hay-debug`, `/hay-learn`, `/hay-feature`, `/hay-review`, `/hay-adr` ou `/hay-help`.
+3. Anti-spoil : `/hay-hint` commence à la dose 1 pour le code du projet ; `/hay-learn` enseigne les notions avec un exemple neutre sans livrer l'implémentation du ticket.
+4. Termine par une seule commande : `/hay-status`, `/hay-continue`, `/hay-debug`, `/hay-hint`, `/hay-learn`, `/hay-feature`, `/hay-review`, `/hay-adr` ou `/hay-help`.
 <!-- END haymitch -->
 ```
 
@@ -165,9 +189,9 @@ Chaque skill fonctionne comme un aiguilleur : le `SKILL.md` reste court et ne ch
 
 | Contexte chargé | Tokens consommés |
 |---|---|
-| Catalogue des 9 descriptions (permanent) | ~400 |
+| Catalogue des 10 descriptions (permanent) | ~450 |
 | Commande `/hay-status` | ~600 |
-| Commandes `/hay-adr`, `/hay-debug`, `/hay-learn` | ~650 à 850 |
+| Commandes `/hay-adr`, `/hay-debug`, `/hay-hint`, `/hay-learn` | ~500 à 950 |
 | Commandes `/hay-feature`, `/hay-continue`, `/hay-review` | ~850 à 1 100 |
 | Commande `/hay-help` | ~400 |
 | `/haymitch` seul | ~1 400 |
@@ -194,6 +218,10 @@ Vérifiez la présence du fichier `SKILL.md` et de son frontmatter YAML (`name` 
 
 **Une commande ne répond pas.**  
 Les descriptions sont en français. Utilisez une requête en français ou invoquez explicitement le skill selon votre agent (`/hay-status` ou `$hay-status`).
+
+**`/hay-learn` continue à ne donner que des indices.**
+
+Vous utilisez probablement une ancienne copie locale. Vérifiez quel dossier de skills votre agent charge, confirmez la présence de `hay-hint`, réinstallez la suite dans cette même portée, puis ouvrez une nouvelle session.
 
 **Haymitch n'intervient pas spontanément.**  
 Comportement normal : il attend vos commandes. Pour une surveillance ciblée dès qu'une réponse dépend de l'état du projet, intégrez le bloc du bonus 1 dans votre `AGENTS.md`.

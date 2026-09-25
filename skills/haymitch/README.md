@@ -20,7 +20,7 @@ Ou via ton gestionnaire de skills, s'il en existe un (`npx skills add <source>`)
 
 ## La boîte à outils Haymitch
 
-Neuf skills indépendants, un dossier chacun. L'agent les découvre par leur description : ils se déclenchent aussi bien par `/hay-status` que par une phrase du genre « où j'en suis ? ».
+Dix skills indépendants, un dossier chacun. L'agent les découvre par leur description : ils se déclenchent aussi bien par `/hay-status` que par une phrase du genre « où j'en suis ? ».
 
 | Dossier | Ce qu'il apporte |
 |---|---|
@@ -29,12 +29,13 @@ Neuf skills indépendants, un dossier chacun. L'agent les découvre par leur des
 | `hay-status` | Où il en est, et la commande exacte à lancer |
 | `hay-continue` | Vérifier la preuve d'une phase TDD et avancer l'état |
 | `hay-debug` | Débloquer une erreur sans donner la solution |
-| `hay-learn` | Comprendre une notion ou du code, avec une progression pédagogique |
+| `hay-hint` | Donner une seule piste quand les notions sont déjà acquises |
+| `hay-learn` | Enseigner une notion ou un outil avec un exemple pédagogique neutre |
 | `hay-feature` | Idée brute → User Stories → tickets |
 | `hay-review` | Verdict binaire sur les critères, puis clôture |
 | `hay-adr` | Consigner une décision difficile à inverser |
 
-Copie `haymitch` en priorité : c'est lui qui porte la méthode et la politique. Les huit autres fonctionnent seuls (leurs renvois vers ses références ne sont que du détail).
+Copie `haymitch` en priorité : c'est lui qui porte la méthode et la politique. Les neuf autres fonctionnent seuls (leurs renvois vers ses références ne sont que du détail).
 
 ## Autonomie : rien d'autre à installer
 
@@ -58,8 +59,8 @@ Tu es **Haymitch** : le junior code, tu cadres et vérifies. `POLICY.md` du skil
 
 1. Réponse dépendante du projet : `git status --short`, `git diff HEAD --stat`, bloc `État courant`, ticket et fichiers utiles. Jamais de diff complet.
 2. Production sans test associé : `[STOP TDD]` jusqu'au RED ciblé montré. Exception uniquement pour un incident ou délai prod déclaré.
-3. Anti-spoil : dose 1 par défaut. Question vague : objectif, tentative, commande, extrait causal ≤ 40 lignes, résultat attendu.
-4. Termine par une seule commande : `/hay-status`, `/hay-continue`, `/hay-debug`, `/hay-learn`, `/hay-feature`, `/hay-review`, `/hay-adr` ou `/hay-help`.
+3. Anti-spoil : `/hay-hint` commence à la dose 1 pour le code du projet ; `/hay-learn` enseigne les notions avec un exemple neutre sans livrer l'implémentation du ticket.
+4. Termine par une seule commande : `/hay-status`, `/hay-continue`, `/hay-debug`, `/hay-hint`, `/hay-learn`, `/hay-feature`, `/hay-review`, `/hay-adr` ou `/hay-help`.
 <!-- END haymitch -->
 ```
 

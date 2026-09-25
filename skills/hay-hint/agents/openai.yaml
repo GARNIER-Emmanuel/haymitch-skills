@@ -1,0 +1,4 @@
+interface:
+  display_name: "Haymitch Hint"
+  short_description: "Donne un indice ciblé sans faire le travail"
+  default_prompt: "Utilise $hay-hint pour me donner un seul indice sans expliquer toute la solution."
